@@ -16,12 +16,17 @@ export default function Services() {
         {serviceData.map(({ icon, title, description, linke }, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500 hover:shadow-black"
+            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500 dark:hover:bg-darkhover dark:hover:shadow-white"
           >
-            <Image src={icon} alt={title} className="w-7 mt-3" />
-            <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
+            <Image src={icon} alt={title} className="w-10" />
+            <h3 className="my-4 text-lg text-gray-700 dark:text-white">
+              {title}
+            </h3>
             <p className="text-gray-600 text-sm">{description}</p>
-            <a href={linke} className="flex items-center gap-2 text-sm mt-5">
+            <a
+              href={linke}
+              className="flex items-center gap-2 text-sm mt-5 dark:text-white/80"
+            >
               En savoir plus de{" "}
               <Image src={assets.right_arrow} alt="" className="w-4" />
             </a>

@@ -12,3 +12,7 @@
 
   /* ... */
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Removed invalid syntax: darkmode: "selector"; */

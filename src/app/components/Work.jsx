@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { assets, workData } from "../../../assets/assets";
 
-export default function Work() {
+export default function Work({ isDarkMode }) {
   return (
     <div className="w-full px-[12%] py-10 scroll-mt-20" id="work">
       <h4 className="text-center mb-2 text-lg font-Ovo"> Mes projets</h4>
@@ -15,7 +15,7 @@ export default function Work() {
         consectetur corporis quis reprehenderit quidem. Dolore ipsam inventore
       </p>
 
-      <div className="grid grid-cols-tester gap-5 my-10">
+      <div className="grid grid-cols-tester gap-5 my-10 dark:text-black">
         {workData.map((projet, index) => (
           <div
             key={index}
@@ -37,10 +37,16 @@ export default function Work() {
 
       <a
         href=""
-        className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-400 rounded-full y-3 py-3 px-10 mx-auto my-20  hover:bg-lighthover duration-500"
+        className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-400 rounded-full y-3 py-3 px-10 mx-auto my-20  hover:bg-lighthover duration-500 dark: text-white dark:border-white dark:hover:bg-darkhover"
       >
         En savoir plus{" "}
-        <Image src={assets.right_arrow_bold} alt="" className="w-4" />
+        <Image
+          src={
+            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
+          }
+          alt=""
+          className="w-4"
+        />
       </a>
     </div>
   );

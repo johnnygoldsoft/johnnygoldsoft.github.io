@@ -23,7 +23,7 @@ export default function Services() {
             <p className="text-gray-600 text-sm">{description}</p>
             <a href={linke} className="flex items-center gap-2 text-sm mt-5">
               En savoir plus de{" "}
-              <Image src={assets.right_arrow} className="w-4" />
+              <Image src={assets.right_arrow} alt="" className="w-4" />
             </a>
           </div>
         ))}

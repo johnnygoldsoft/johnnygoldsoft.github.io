@@ -4,15 +4,11 @@
   --color-lighthover: #fcf4ff;
   --color-darkhover: #2a004a;
   --color-darktheme: #11001f;
-  --font-Outfit: "Outfit", sans-serif;
-  --font-Ovo: "Ovo", serif;
+  --font-Outfit: "Outfit", "sans-serif";
+  --font-Ovo: "Ovo", "serif";
   --shadow-black: 4px 4px 0px #000000;
   --shadow-white: 4px 4px 0px #ffffff;
   --grid-template-columns-tester: repeat(auto-fit, minmax(200px, 1fr));
 
   /* ... */
-}
-
-* {
-  font-family: Outfit;
 }

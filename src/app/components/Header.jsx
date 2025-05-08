@@ -18,7 +18,7 @@ export default function Header() {
           className="relative w-36 h-36 mt-10 rounded-full shadow-xl border-4 border-white dark:border-gray-800 overflow-hidden"
         >
           <Image
-            src={assets.profile_img}
+            src={assets.profile_pic}
             alt="Profile Picture"
             className="object-cover w-full h-full"
           />
@@ -32,7 +32,12 @@ export default function Header() {
         className=" flex items-end gap-2 text-xl md:text-2xl mb-1 font-Ovo"
       >
         Salut ! Je suis Jean Claude SASSOU{" "}
-        <Image src={assets.hand_icon} alt=" " className="w-6" />
+        <Image
+          priority={false}
+          src={assets.hand_icon}
+          alt=" "
+          className="w-6"
+        />
       </motion.h3>
 
       <motion.h1

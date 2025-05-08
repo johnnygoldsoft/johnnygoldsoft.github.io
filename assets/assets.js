@@ -1,4 +1,5 @@
 import user_image from "./user-image.png";
+import profile_pic from "./profile-pic.png";
 import code_icon from "./code-icon.png";
 import code_icon_dark from "./code-icon-dark.png";
 import edu_icon from "./edu-icon.png";
@@ -38,6 +39,8 @@ import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 
 export const assets = {
   user_image,
+  profile_img,
+  profile_pic,
   code_icon,
   code_icon_dark,
   edu_icon,
@@ -143,13 +146,13 @@ export const infoList = [
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "Haute Etude des Science et Technologie",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: "Built more than 5 projects",
+    description: "Plus de 5 projets deja realisés ",
   },
 ];
 

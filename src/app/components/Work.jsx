@@ -86,7 +86,7 @@ export default function Work({ isDarkMode }) {
                   {project.description}
                 </p>
               </div>
-              <div className="w-10 h-10 flex items-center justify-center border border-gray-400 dark:border-gray-600 rounded-full group-hover:bg-lime-300 dark:group-hover:bg-lime-400 transition-colors">
+              <div className="w-10 h-10 flex items-center justify-center border border-gray-400 dark:border-gray-600 rounded-full group-hover:bg-lime-300 dark:bg-white dark:group-hover:bg-lime-400 transition-colors">
                 <Image src={assets.send_icon} alt="Icone" className="w-5 h-5" />
               </div>
             </div>

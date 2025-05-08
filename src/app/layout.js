@@ -1,4 +1,5 @@
 import { Outfit, Ovo } from "next/font/google";
+import Loader from "./components/Loader";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darktheme dark:text-white`}
       >
-        {children}
+        <Loader>{children}</Loader>
       </body>
     </html>
   );

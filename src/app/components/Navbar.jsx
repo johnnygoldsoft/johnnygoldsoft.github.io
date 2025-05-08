@@ -43,11 +43,15 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
         }`}
       >
         <a href="#top">
-          <Image
-            src={isDarkMode ? assets.logo_dark : assets.logo}
-            className="w-28 cursor-pointer mr-14"
-            alt="Logo"
-          />
+          {isDarkMode ? (
+            <h2 className="flex flex-row w-28 cursor-pointer mr-14 text-3xl text-white font-semibold font-Outfit">
+              JCSassou <span className="text-red-500 text-center ">.</span>
+            </h2>
+          ) : (
+            <h2 className="flex flex-row justify-center w-28 cursor-pointer mr-14 text-3xl font-semibold font-Outfit">
+              JCSassou <span className="text-red-500 text-center ">.</span>
+            </h2>
+          )}
         </a>
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${

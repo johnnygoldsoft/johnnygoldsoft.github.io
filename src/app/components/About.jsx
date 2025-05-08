@@ -1,70 +1,127 @@
 import Image from "next/image";
 import { assets, infoList, toolsData } from "../../../assets/assets";
+import { motion } from "framer-motion";
 
 export default function About({ isDarkMode }) {
   return (
-    <div id="about" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg font-Ovo">Introduction ...</h4>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      id="about"
+      className="w-full px-[8%] py-16 scroll-mt-20"
+    >
+      {/* Header */}
+      <motion.h4
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-center mb-4 text-lg text-gray-600 font-Ovo dark:text-gray-400"
+      >
+        Une brève introduction
+      </motion.h4>
 
-      <h2 className="text-center text-5xl font-Ovo"> A Propos de moi ...</h2>
+      <motion.h2
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="text-center text-4xl sm:text-5xl font-bold font-Ovo"
+      >
+        À Propos de Moi
+      </motion.h2>
 
-      <div className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-        <div className="w-64 sm:w-80 rounded-3xl max-w-none">
+      {/* Content */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="flex w-full flex-col lg:flex-row items-center gap-12 mt-12"
+      >
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="w-72 sm:w-96 rounded-3xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-800"
+        >
           <Image
             src={assets.user_image}
-            alt="user"
-            className="w-full rounded-3xl"
+            alt="Profile"
+            className="w-full h-full object-cover"
           />
-        </div>
+        </motion.div>
 
-        <div className="flex-1">
-          <p className="mb-10 max-w-3xl font-Ovo">
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex-1"
+        >
+          <p className="mb-8 text-lg text-gray-700 leading-relaxed dark:text-gray-300">
             Je suis un développeur web et mobile passionné, spécialisé dans la
-            création d'applications innovantes et performantes. Mon expertise
-            couvre une large gamme de technologies, me permettant de concevoir
-            des solutions sur mesure pour répondre aux besoins spécifiques de
-            mes clients. Je suis également un spécialiste en informatique, avec
-            une solide expérience dans la gestion des systèmes informatiques et
-            la résolution de problèmes techniques complexes.
+            création d'applications performantes. Grâce à une expertise en
+            informatique, je fournis des solutions sur mesure adaptées aux
+            besoins spécifiques de mes clients, tout en maîtrisant la gestion
+            des systèmes informatiques complexes.
           </p>
 
-          <ul className=" grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+          {/* Info List */}
+          <motion.ul
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+          >
             {infoList.map(({ icon, iconDark, title, description }, index) => (
-              <li
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkhover/50"
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center text-center bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-800"
                 key={index}
               >
                 <Image
                   src={isDarkMode ? iconDark : icon}
                   alt={title}
-                  className="w-7 mt-3"
+                  className="w-8 h-8 mb-3"
                 />
-                <h3 className="my-4 font-semibold text-gray-700 dark:text-white ">
+                <h3 className="font-semibold text-gray-800 dark:text-gray-200">
                   {title}
                 </h3>
-                <p className="text-gray-600 text-sm dark:text-white/80">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                   {description}
                 </p>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
-          <h4 className="my-6 text-gray-700 font-Ovo dark:text-white/80">
-            Les technos que j'utilise
-          </h4>
+          {/* Tools */}
+          <motion.h4
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 1.3 }}
+            className="mt-10 mb-6 text-lg text-gray-700 font-Ovo dark:text-gray-300"
+          >
+            Les technologies que j'utilise
+          </motion.h4>
 
-          <ul className="flex flex-row gap-3 sm:gap-5">
+          <motion.ul
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.5 }}
+            className="flex flex-wrap justify-center gap-4"
+          >
             {toolsData.map((tool, index) => (
-              <li
+              <motion.li
+                whileHover={{ scale: 1.1 }}
                 key={index}
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+                className="flex items-center justify-center w-14 h-14 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 transition-all"
               >
-                <Image src={tool} alt={tool} className="w-5 sm:w-7" />
-              </li>
+                <Image src={tool} alt={tool} className="w-8 h-8" />
+              </motion.li>
             ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+          </motion.ul>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 }

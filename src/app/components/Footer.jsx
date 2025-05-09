@@ -6,11 +6,17 @@ export default function Footer({ isDarkMode }) {
     <div className="mt-20">
       {/* Logo Section */}
       <div className="text-center mb-6">
-        <Image
-          src={isDarkMode ? assets.logo_dark : assets.logo}
-          alt="Logo"
-          className="w-36 mx-auto mb-2"
-        />
+        <a href="#top">
+          {isDarkMode ? (
+            <h2 className="flex flex-row justify-center w-36 mx-auto mb-2 w-36 mx-auto text-3xl font-semibold font-Outfit">
+              JCSassou <span className="text-red-500 text-center ">.</span>
+            </h2>
+          ) : (
+            <h2 className="flex flex-row justify-center w-36 mx-auto mb-2 w-36 mx-auto text-3xl font-semibold font-Outfit">
+              JCSassou <span className="text-red-500 text-center ">.</span>
+            </h2>
+          )}
+        </a>
         <div className="w-max flex items-center gap-2 mx-auto text-gray-700 dark:text-white">
           <Image
             src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
@@ -28,10 +34,15 @@ export default function Footer({ isDarkMode }) {
         </p>
         <ul className="flex items-center gap-4 justify-center mt-4 sm:mt-0">
           {[
-            { href: "https://github.com", label: "Github" },
-            { href: "https://linkedin.com", label: "LinkedIn" },
-            { href: "https://twitter.com", label: "Twitter" },
-            { href: "https://instagram.com", label: "Instagram" },
+            { href: "https://github.com/johnnygoldsoft", label: "Github" },
+            {
+              href: "https://www.linkedin.com/in/jean-claude-sassou/",
+              label: "LinkedIn",
+            },
+            {
+              href: "https://www.instagram.com/johnnygoldsoft/",
+              label: "Instagram",
+            },
           ].map((link, index) => (
             <li key={index}>
               <a

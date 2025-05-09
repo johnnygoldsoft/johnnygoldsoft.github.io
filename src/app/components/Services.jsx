@@ -46,7 +46,7 @@ export default function Services() {
         transition={{ duration: 1, delay: 0.9 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
       >
-        {serviceData.map(({ icon, title, description, linke }, index) => (
+        {serviceData.map(({ icon, title, description }, index) => (
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -70,7 +70,7 @@ export default function Services() {
 
             {/* Learn More Link */}
             <a
-              href={linke}
+              href={"#contact"}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
             >
               En savoir plus{" "}

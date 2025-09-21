@@ -101,7 +101,7 @@ export default function About({ isDarkMode }) {
             transition={{ duration: 0.3, delay: 1.3 }}
             className="mt-10 mb-6 text-lg text-gray-700 font-Ovo dark:text-gray-300"
           >
-            Les technologies que j'utilise
+            Mes technos préférées incluent :
           </motion.h4>
 
           <motion.ul

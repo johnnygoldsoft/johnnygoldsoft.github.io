@@ -1,5 +1,5 @@
-import user_image from "./user-image.png";
-import profile_pic from "./profile-pic.png";
+import user_image from "./jean_professionnal.jpg";
+import profile_pic from "./jean_prof2.jpg";
 import code_icon from "./code-icon.png";
 import code_icon_dark from "./code-icon-dark.png";
 import edu_icon from "./edu-icon.png";
@@ -9,6 +9,9 @@ import project_icon_dark from "./project-icon-dark.png";
 import vscode from "./vscode.png";
 import firebase from "./firebase.png";
 import figma from "./figma.png";
+import laravel from "./laravel.png";
+import flutter from "./flutter.png";
+import wordpress from "./wordpress.png";
 import git from "./git.png";
 import mongodb from "./mongodb.png";
 import right_arrow_white from "./right-arrow-white.png";
@@ -50,6 +53,9 @@ export const assets = {
   vscode,
   firebase,
   figma,
+  flutter,
+  wordpress,
+  laravel,
   git,
   mongodb,
   right_arrow_white,
@@ -81,8 +87,14 @@ export const assets = {
 
 export const workData = [
   {
+    title: "Frontend1 project",
+    description: "Fontend Festijet ...",
+    bgImage: "/work-8.png",
+    category: "Web Design",
+  },
+  {
     title: "Frontend project",
-    description: "Web Design",
+    description: "Fontend Festijet ...",
     bgImage: "/work-1.png",
     category: "Web Design",
   },
@@ -110,27 +122,41 @@ export const serviceData = [
   {
     icon: assets.web_icon,
     title: "Web design",
-    description: "Web development is the process of building, programming...",
+    description: "creation de site web moderne et responsive ...",
     linke: "ffs",
   },
   {
-    icon: assets.mobile_icon,
+    icon: assets.web_icon,
     title: "Mobile app",
-    description:
-      "Mobile app development involves creating software for mobile devices...",
+    description: "creation d'application mobile performante et réactive ...",
     link: "fsf",
   },
   {
-    icon: assets.ui_icon,
+    icon: assets.web_icon,
     title: "UI/UX design",
     description:
-      "UI/UX design focuses on creating a seamless user experience...",
+      "UI/UX design intuitif et attrayant pour une expérience utilisateur optimale...",
     link: "fsf",
   },
   {
-    icon: assets.graphics_icon,
+    icon: assets.web_icon,
     title: "Graphics design",
-    description: "Creative design solutions to enhance visual communication...",
+    description:
+      "Design graphique créatif pour renforcer votre identité visuelle...",
+    link: "fsfs",
+  },
+  {
+    icon: assets.web_icon,
+    title: "Reseau et systeme",
+    description:
+      "Configuration et gestion de réseaux et systèmes informatiques...",
+    link: "fsfs",
+  },
+  {
+    icon: assets.web_icon,
+    title: "Maintenance informatique",
+    description:
+      "Support et maintenance pour assurer la performance de vos systèmes...",
     link: "fsfs",
   },
 ];
@@ -157,9 +183,10 @@ export const infoList = [
 ];
 
 export const toolsData = [
-  assets.vscode,
   assets.firebase,
-  assets.mongodb,
+  assets.wordpress,
+  assets.laravel,
+  assets.flutter,
   assets.figma,
   assets.git,
 ];

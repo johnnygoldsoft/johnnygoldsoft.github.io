@@ -6,10 +6,8 @@ import { motion } from "framer-motion";
 export default function Work({ isDarkMode }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Liste des catégories uniques
   const categories = ["All", ...new Set(workData.map((item) => item.category))];
 
-  // Filtrer les réalisations en fonction de la catégorie sélectionnée
   const filteredWorkData =
     selectedCategory === "All"
       ? workData
@@ -70,14 +68,22 @@ export default function Work({ isDarkMode }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             key={index}
-            style={{ backgroundImage: `url(${project.bgImage})` }}
-            className="aspect-square bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group shadow-md overflow-hidden"
+            className="aspect-square rounded-xl relative cursor-pointer group shadow-md overflow-hidden"
           >
+            {/* Composant Image pour l'image de fond */}
+            <Image
+              src={project.bgImage}
+              alt={project.title}
+              layout="fill"
+              objectFit="cover"
+              className="z-0" // Pour s'assurer qu'il est en arrière-plan
+            />
+
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
 
             {/* Project Info */}
-            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 rounded-lg px-6 py-4 w-10/12 flex items-center justify-between group-hover:bottom-7 transition-all duration-500">
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 rounded-lg px-6 py-4 w-10/12 flex items-center justify-between group-hover:bottom-7 transition-all duration-500 z-20">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                   {project.title}

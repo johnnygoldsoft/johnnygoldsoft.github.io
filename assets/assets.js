@@ -40,7 +40,33 @@ import send_icon from "./send-icon.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 
+// work images
+
+import centre_site from "./public/work/centre.jpg";
+import sproca from "./public/work/sproca.jpg";
+import aip from "./public/work/aip.png";
+import evalcit_ui from "./public/work/evalcit_ui.png";
+import ebd_ui from "./public/work/ebd_ui.png";
+import festi_ui from "./public/work/festi_ui.png";
+import festijet_mobile from "./public/work/festijet_mobile.png";
+import front1 from "./public/work/front1.jpeg";
+import front2 from "./public/work/front2.jpeg";
+import front3 from "./public/work/front3.jpeg";
+
 export const assets = {
+  centre_site,
+  aip,
+  sproca,
+  evalcit_ui,
+  festi_ui,
+  ebd_ui,
+  festi_ui,
+  festijet_mobile,
+  front1,
+  front2,
+  front3,
+
+  // autre
   user_image,
   profile_img,
   profile_pic,
@@ -87,34 +113,62 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend1 project",
-    description: "Fontend Festijet ...",
-    bgImage: "/work-8.png",
+    title: "Frontend Festijet",
+    description: "Fontend Festijet ui ...",
+    bgImage: assets.festi_ui,
+    category: "UI/UX Design",
+  },
+  {
+    title: "Frontend EBD",
+    description: "front end EBD ui ...",
+    bgImage: assets.ebd_ui,
+    category: "UI/UX Design",
+  },
+
+  {
+    title: "Frontend AIPJeunes",
+    description: "front end AIPJeunes ui ...",
+    bgImage: assets.aip,
+    category: "UI/UX Design",
+  },
+
+  {
+    title: "Site web CDEJ",
+    description: "CDEJ Siteweb ...",
+    bgImage: assets.centre_site,
+    category: "Web Design",
+  },
+
+  {
+    title: "Site web Sproca",
+    description: "Sproca Sitexeb ...",
+    bgImage: assets.sproca,
     category: "Web Design",
   },
   {
-    title: "Frontend project",
-    description: "Fontend Festijet ...",
-    bgImage: "/work-1.png",
-    category: "Web Design",
+    title: "evlalcit UI",
+    description: "Evalcit app ui ",
+    bgImage: assets.evalcit_ui,
+    category: "UI/UX Design",
   },
   {
-    title: "Geo based app",
-    description: "Mobile App",
-    bgImage: "/work-2.png",
+    title: "Feedplate App",
+    description: "mobile front end app",
+    bgImage: assets.front1,
     category: "Mobile App",
   },
   {
-    title: "Photography site",
-    description: "Web Design",
-    bgImage: "/work-3.png",
-    category: "Web Design",
+    title: "Newsly App",
+    description: "mobile front end app",
+    bgImage: assets.front2,
+    category: "Mobile App",
   },
+
   {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
-    bgImage: "/work-4.png",
-    category: "UI/UX Design",
+    title: "Socialy App",
+    description: "mobile front end app",
+    bgImage: assets.front3,
+    category: "Mobile App",
   },
 ];
 
@@ -166,7 +220,7 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages",
-    description: "HTML, CSS, JavaScript React Js, Next Js",
+    description: "HTML, CSS, JavaScript , php, Dart, SQL, etc ...",
   },
   {
     icon: assets.edu_icon,

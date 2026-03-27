@@ -99,7 +99,7 @@ export default function Contact() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkhover/30 dark:border-white/90 focus:border-lime-500"
+            className="flex-1 p-3 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
           />
           <motion.input
             initial={{ x: 50, opacity: 0 }}
@@ -111,7 +111,7 @@ export default function Contact() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkhover/30 dark:border-white/90 focus:border-lime-500"
+            className="flex-1 p-3 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
           />
         </div>
 
@@ -125,14 +125,14 @@ export default function Contact() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkhover/30 dark:border-white/90 focus:border-lime-500"
+          className="w-full p-4 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 mb-6 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
         ></motion.textarea>
 
         <motion.button
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
           type="submit"
-          className="py-3 px-8 w-max flex items-center justify-center gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkhover"
+          className="py-3 px-8 w-max flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full mx-auto hover:shadow-lg duration-500 dark:from-blue-500 dark:to-purple-500 font-semibold"
         >
           {isLoading ? (
             <span className="loader">Envoi...</span>

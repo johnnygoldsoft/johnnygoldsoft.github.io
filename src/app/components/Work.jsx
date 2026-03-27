@@ -34,27 +34,35 @@ export default function Work({ isDarkMode }) {
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-4xl sm:text-5xl font-bold font-Ovo"
+        className="text-center text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-green-300"
       >
         Mes Récentes Réalisations
       </motion.h2>
 
       {/* Catégories */}
-      <div className="flex justify-center gap-4 my-8">
-        {categories.map((category) => (
-          <button
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="flex justify-center gap-4 my-8 flex-wrap"
+      >
+        {categories.map((category, idx) => (
+          <motion.button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-6 py-2 text-sm font-medium border rounded-full transition-colors duration-300 ${
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className={`px-6 py-2 text-sm font-bold rounded-full transition-all duration-300 ${
               selectedCategory === category
-                ? "bg-gray-800 text-white dark:bg-lime-400 dark:text-black"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg dark:from-blue-500 dark:to-purple-500"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 border-2 border-transparent hover:border-blue-400"
             }`}
           >
             {category}
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Projects Grid */}
       <motion.div
@@ -65,37 +73,50 @@ export default function Work({ isDarkMode }) {
       >
         {filteredWorkData.map((project, index) => (
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             key={index}
-            className="aspect-square rounded-xl relative cursor-pointer group shadow-md overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            whileHover={{ y: -12 }}
+            className="aspect-square rounded-2xl relative cursor-pointer group shadow-lg overflow-hidden border-2 border-blue-200 dark:border-blue-700"
           >
-            {/* Composant Image pour l'image de fond */}
+            {/* Project Image Background */}
             <Image
               src={project.bgImage}
               alt={project.title}
               layout="fill"
               objectFit="cover"
-              className="z-0" // Pour s'assurer qu'il est en arrière-plan
+              className="z-0 group-hover:scale-110 transition-transform duration-500"
             />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+            {/* Gradient Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"
+            ></motion.div>
 
             {/* Project Info */}
-            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 rounded-lg px-6 py-4 w-10/12 flex items-center justify-between group-hover:bottom-7 transition-all duration-500 z-20">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {project.description}
-                </p>
-              </div>
-              <div className="w-10 h-10 flex items-center justify-center border border-gray-400 dark:border-gray-600 rounded-full group-hover:bg-lime-300 dark:bg-white dark:group-hover:bg-lime-400 transition-colors">
-                <Image src={assets.send_icon} alt="Icone" className="w-5 h-5" />
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileHover={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 flex flex-col justify-end p-6 z-20"
+            >
+              <h3 className="text-xl font-bold text-white mb-2">
+                {project.title}
+              </h3>
+              <p className="text-sm text-white/80 mb-4">
+                {project.description}
+              </p>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-400 rounded-full cursor-pointer shadow-lg"
+              >
+                <Image src={assets.send_icon} alt="Voir" className="w-5 h-5" />
+              </motion.div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>

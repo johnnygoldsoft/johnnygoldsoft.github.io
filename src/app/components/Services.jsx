@@ -24,7 +24,7 @@ export default function Services() {
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-4xl sm:text-5xl font-bold font-Ovo"
+        className="text-center text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-green-300"
       >
         Mes Services
       </motion.h2>
@@ -48,30 +48,30 @@ export default function Services() {
       >
         {serviceData.map(({ icon, title, description }, index) => (
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0, 102, 255, 0.2)" }}
             whileTap={{ scale: 0.95 }}
             key={index}
-            className="bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
+            className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900 border-2 border-blue-200 dark:border-blue-700 rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
           >
             {/* Icon */}
-            <div className="w-12 h-12 flex items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-full mb-4">
+            <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-400 to-green-400 rounded-xl mb-4">
               <Image src={icon} alt={title} className="w-6 h-6" />
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
               {title}
             </h3>
 
             {/* Description */}
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               {description}
             </p>
 
             {/* Learn More Link */}
             <a
               href={"#contact"}
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              className="inline-flex items-center gap-2 font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
             >
               En savoir plus{" "}
               <Image src={assets.right_arrow} alt="" className="w-4 h-4" />

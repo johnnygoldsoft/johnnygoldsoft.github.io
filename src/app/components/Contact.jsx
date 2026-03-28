@@ -1,9 +1,16 @@
 "use client";
+
 import Image from "next/image";
 import { assets } from "../../../assets/assets";
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Utilisation de framer-motion pour les animations
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { SectionTitle } from "@/components/common/SectionTitle";
 
+/**
+ * Contact Component - Formulaire de contact
+ * Inspiré par shadcn/ui - Design système cohérent
+ */
 export default function Contact() {
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +47,7 @@ export default function Contact() {
 
       if (res.success) {
         setResult("Formulaire envoyé avec succès !");
-        setFormData({ name: "", email: "", message: "" }); // Reset form after success
+        setFormData({ name: "", email: "", message: "" });
       } else {
         setResult("Erreur : Impossible d'envoyer le formulaire.");
       }
@@ -52,106 +59,144 @@ export default function Contact() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+    <section
+      className="w-full px-4 py-16 sm:px-8 scroll-mt-20 bg-gray-50 dark:bg-gray-900"
       id="contact"
-      className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/footer-bg-color.png')] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-none"
     >
-      <motion.h4 className="text-center mb-2 text-lg font-Ovo">
-        Pour tout besoin
-      </motion.h4>
-      <motion.h2
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center text-5xl font-Ovo"
-      >
-        Entrer en contact
-      </motion.h2>
-      <motion.p
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className="max-w-2xl text-center mt-5 mb-12 mx-auto font-Ovo"
-      >
-        Je suis toujours à la recherche de nouveaux défis et d'opportunités
-        passionnantes. N'hésitez pas à me contacter pour discuter de projets,
-        collaborations ou simplement pour dire bonjour !
-      </motion.p>
+      <div className="mx-auto max-w-2xl">
+        {/* Section Title */}
+        <SectionTitle
+          subtitle="Pour tout besoin"
+          title="Entrer en contact"
+          description="Je suis toujours à la recherche de nouveaux défis et d'opportunités passionnantes. N'hésitez pas à me contacter pour discuter de projets, collaborations ou simplement pour dire bonjour !"
+        />
 
-      <motion.form
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
-        onSubmit={onSubmit}
-        className="max-w-2xl mx-auto"
-      >
-        <div className="grid grid-cols-tester gap-6 mt-10 mb-8">
-          <motion.input
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            type="text"
-            placeholder="Entrer votre nom"
-            required
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="flex-1 p-3 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
-          />
-          <motion.input
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            type="email"
-            placeholder="Entrer votre email"
-            required
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="flex-1 p-3 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
-          />
-        </div>
-
-        <motion.textarea
-          initial={{ y: 100, opacity: 0 }}
+        {/* Form */}
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.3 }}
-          rows="6"
-          placeholder="Entrer votre message"
-          required
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-4 outline-none border-2 border-blue-300 dark:border-blue-600 rounded-lg bg-white dark:bg-gray-800 mb-6 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 transition-all"
-        ></motion.textarea>
-
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          type="submit"
-          className="py-3 px-8 w-max flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full mx-auto hover:shadow-lg duration-500 dark:from-blue-500 dark:to-purple-500 font-semibold"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          onSubmit={onSubmit}
+          className="mt-12 space-y-6 rounded-lg border border-gray-200 bg-white p-8 shadow-lg dark:border-gray-800 dark:bg-gray-950"
         >
-          {isLoading ? (
-            <span className="loader">Envoi...</span>
-          ) : (
-            <>
-              Envoyer maintenant
-              <Image
-                src={assets.right_arrow_white}
-                alt="right arrow"
-                className="w-4"
+          {/* Name & Email Grid */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Name Input */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <label htmlFor="name" className="mb-2 block text-sm font-semibold text-gray-900 dark:text-gray-50">
+                Nom
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Votre nom"
+                required
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-50 dark:focus:ring-blue-900"
               />
-            </>
-          )}
-        </motion.button>
+            </motion.div>
 
-        <p className="mt-4 text-center text-gray-600 dark:text-gray-300">
-          {result}
-        </p>
-      </motion.form>
-    </motion.div>
+            {/* Email Input */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <label htmlFor="email" className="mb-2 block text-sm font-semibold text-gray-900 dark:text-gray-50">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="Votre email"
+                required
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-50 dark:focus:ring-blue-900"
+              />
+            </motion.div>
+          </div>
+
+          {/* Message Textarea */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <label htmlFor="message" className="mb-2 block text-sm font-semibold text-gray-900 dark:text-gray-50">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows="6"
+              placeholder="Votre message"
+              required
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-50 dark:focus:ring-blue-900"
+            />
+          </motion.div>
+
+          {/* Submit Button */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-col items-center gap-4"
+          >
+            <Button
+              type="submit"
+              disabled={isLoading}
+              isLoading={isLoading}
+              className="w-full sm:w-auto"
+            >
+              {isLoading ? "Envoi..." : "Envoyer le message"}
+              {!isLoading && (
+                <motion.span
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              )}
+            </Button>
+
+            {/* Result Message */}
+            {result && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className={`text-center text-sm font-semibold ${
+                  result.includes("succès")
+                    ? "text-green-600 dark:text-green-400"
+                    : "text-red-600 dark:text-red-400"
+                }`}
+              >
+                {result}
+              </motion.p>
+            )}
+          </motion.div>
+        </motion.form>
+      </div>
+    </section>
   );
 }
+
+/**
+ * Design Philosophy (shadcn/ui inspired):
+ * - Accessible form inputs with labels
+ * - Consistent focus states and styling
+ * - Smooth animations and transitions
+ * - Error and success states
+ * - Responsive layout
+ * - Dark mode support
+ * - Semantic HTML structure
+ */

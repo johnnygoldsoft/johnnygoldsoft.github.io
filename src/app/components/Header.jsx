@@ -233,12 +233,7 @@ export default function Header() {
               >
                 <a href="#contact">
                   Me contacter
-                  <motion.span
-                    animate={{ x: [0, 6, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
+                  
                 </a>
               </Button>
             </motion.div>
@@ -254,11 +249,6 @@ export default function Header() {
               >
                 <a href="/jeanclaudesas_cv_finale.pdf" download>
                   Télécharger CV
-                  <Image
-                    src={assets.download_icon}
-                    alt="Download"
-                    className="h-5 w-5"
-                  />
                 </a>
               </Button>
             </motion.div>

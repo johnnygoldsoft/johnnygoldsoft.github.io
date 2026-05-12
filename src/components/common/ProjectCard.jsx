@@ -76,7 +76,9 @@ export function ProjectCard({
         )}
 
         {/* Link */}
-        <motion.a
+
+        
+        {/* <motion.a
           href={href}
           whileHover={{ x: 4 }}
           className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
@@ -88,7 +90,9 @@ export function ProjectCard({
           >
             →
           </motion.span>
-        </motion.a>
+        </motion.a> */}
+
+        
       </div>
     </motion.div>
   );

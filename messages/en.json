@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "blog": "Blog",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I am",
+    "name": "Jean Claude SASSOU",
+    "title": "Web & Mobile Developer · IT Specialist",
+    "subtitle": "I craft tailored digital experiences — from web to mobile, from design to deployment.",
+    "cta_projects": "View my projects",
+    "cta_contact": "Get in touch",
+    "cta_cv": "Download CV",
+    "based_in": "Lomé, Togo 🇹🇬",
+    "greeting_full": "Hi, I am"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of my work",
+    "filter_all": "All",
+    "view_live": "Live demo",
+    "view_code": "Source code",
+    "technologies": "Technologies"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I master",
+    "categories": {
+      "dev": "Development",
+      "design": "Design",
+      "mobile": "Mobile",
+      "network": "Network & Security",
+      "tools": "Tools",
+      "soft": "Soft Skills"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey",
+    "present": "Present",
+    "types": {
+      "cdi": "Full-time",
+      "cdd": "Fixed-term",
+      "freelance": "Freelance",
+      "volunteer": "Volunteer",
+      "internship": "Internship"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What I can do for you",
+    "cta": "Request a quote"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What my clients say"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your project",
+    "name": "Full name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "service": "Desired service (optional)",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles and thoughts",
+    "read_more": "Read more",
+    "min_read": "min read",
+    "search": "Search articles..."
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Digital resources and products",
+    "buy": "Buy now",
+    "categories": "Categories",
+    "all_products": "All products"
+  },
+  "about": {
+    "title": "About",
+    "download_cv": "Download my CV",
+    "based_in": "Based in Lomé, Togo"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experiences": "Experience",
+    "about": "About",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "shop": "Shop",
+    "blog": "Blog",
+    "logout": "Logout",
+    "new": "New",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "published": "Published",
+    "draft": "Draft",
+    "confirm_delete": "Confirm deletion?",
+    "quotes": "Quotes",
+    "about_social": "About & Social"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "not_found": "Page not found",
+    "back": "Back",
+    "see_all": "See all",
+    "toggle_theme": "Toggle theme",
+    "toggle_lang": "Changer la langue",
+    "quote_request": "Request a quote"
+  }
+}

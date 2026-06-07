@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "blog": "Blog",
+    "shop": "Boutique",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Jean Claude SASSOU",
+    "title": "Développeur Web & Mobile · IT Specialist",
+    "subtitle": "Je crée des expériences numériques sur mesure — du web au mobile, du design au déploiement.",
+    "cta_projects": "Voir mes projets",
+    "cta_contact": "Me contacter",
+    "cta_cv": "Télécharger CV",
+    "based_in": "Lomé, Togo 🇹🇬",
+    "greeting_full": "Bonjour, je suis"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Une sélection de mes réalisations",
+    "filter_all": "Tous",
+    "view_live": "Voir le site",
+    "view_code": "Code source",
+    "technologies": "Technologies"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Technologies et outils que je maîtrise",
+    "categories": {
+      "dev": "Développement",
+      "design": "Design",
+      "mobile": "Mobile",
+      "network": "Réseau & Sécurité",
+      "tools": "Outils",
+      "soft": "Savoir-être"
+    }
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "present": "Présent",
+    "types": {
+      "cdi": "CDI",
+      "cdd": "CDD",
+      "freelance": "Freelance",
+      "volunteer": "Bénévolat",
+      "internship": "Stage"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Ce que je peux faire pour vous",
+    "cta": "Demander un devis"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Ce que disent mes clients"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Parlons de votre projet",
+    "name": "Nom complet",
+    "email": "Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "service": "Service souhaité (optionnel)",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi. Réessayez."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Articles et réflexions",
+    "read_more": "Lire la suite",
+    "min_read": "min de lecture",
+    "search": "Rechercher un article..."
+  },
+  "shop": {
+    "title": "Boutique",
+    "subtitle": "Ressources et produits numériques",
+    "buy": "Acheter",
+    "categories": "Catégories",
+    "all_products": "Tous les produits"
+  },
+  "about": {
+    "title": "À propos",
+    "download_cv": "Télécharger mon CV",
+    "based_in": "Basé à Lomé, Togo"
+  },
+  "admin": {
+    "dashboard": "Tableau de bord",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "experiences": "Expériences",
+    "about": "À propos",
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "shop": "Boutique",
+    "blog": "Blog",
+    "logout": "Déconnexion",
+    "new": "Nouveau",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "published": "Publié",
+    "draft": "Brouillon",
+    "confirm_delete": "Confirmer la suppression ?",
+    "quotes": "Devis",
+    "about_social": "À propos & Réseaux"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "not_found": "Page introuvable",
+    "back": "Retour",
+    "see_all": "Voir tout",
+    "toggle_theme": "Changer le thème",
+    "toggle_lang": "Switch language",
+    "quote_request": "Demande de devis"
+  }
+}

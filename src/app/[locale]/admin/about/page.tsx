@@ -228,7 +228,7 @@ export default function AdminAboutPage({
           </h2>
           <p className="text-xs text-muted-foreground">
             Ces liens s'affichent dans le footer, la page contact et la section
-            À propos.
+            À propos...
           </p>
           <div className="space-y-3">
             {socialFields.map((field) => (

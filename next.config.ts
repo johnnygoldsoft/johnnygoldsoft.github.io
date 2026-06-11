@@ -22,7 +22,8 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://*.supabase.co",
-      "font-src 'self'",
+      // MODIFICATION ICI : Ajout de data: pour autoriser les polices en base64
+      "font-src 'self' data:",
       "connect-src 'self' https://*.supabase.co https://www.google-analytics.com",
       "frame-ancestors 'none'",
     ].join("; "),

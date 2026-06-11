@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+// import React from "react";
+import { useState, use } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/shared/lib/supabase/client";
 import { TiptapEditor } from "@/features/blog/components/TiptapEditor";
@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function NewArticlePage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ export default function NewArticlePage({
     tags: "",
     published: false,
   });
-  const { locale } = await params;
+  const { locale } = use(params);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

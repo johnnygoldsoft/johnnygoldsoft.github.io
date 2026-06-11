@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+// import React from "react";
+import { useState, useEffect, use } from "react";
 import { createClient } from "@/shared/lib/supabase/client";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
@@ -21,7 +21,7 @@ import Link from "next/link";
 export default function AdminAboutPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const [form, setForm] = useState({
     bio_short_fr: "",
@@ -40,7 +40,7 @@ export default function AdminAboutPage({
   });
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
-  const { locale } = await params;
+  const { locale } = use(params);
   const supabase = createClient();
 
   useEffect(() => {

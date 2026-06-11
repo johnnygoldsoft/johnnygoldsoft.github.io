@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+// import React from "react";
+import { useState, useEffect, use } from "react";
 import { upsertSkill, deleteSkill } from "@/features/portfolio/actions";
 import { createClient } from "@/shared/lib/supabase/client";
 import { Button } from "@/shared/ui/button";
@@ -22,7 +22,7 @@ const CAT_LABELS: Record<string, string> = {
 export default function AdminSkillsPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const [skills, setSkills] = useState<any[]>([]);
   const [editing, setEditing] = useState<string | null>(null);
@@ -34,7 +34,7 @@ export default function AdminSkillsPage({
     level: 80,
     visible: true,
   });
-  const { locale } = await params;
+  const { locale } = use(params);
 
   async function loadSkills() {
     const supabase = createClient();

@@ -15,7 +15,7 @@ import Link from "next/link";
 export default function EditArticlePage({
   params,
 }: {
-  params: { locale: string; id: string };
+  params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = use(params);
   const router = useRouter();

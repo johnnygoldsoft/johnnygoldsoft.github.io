@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useState, useEffect } from "react";
+// import React from "react";
+import { useState, useEffect, use } from "react";
 import { createClient } from "@/shared/lib/supabase/client";
 import { motion } from "framer-motion";
 import {
@@ -35,12 +35,12 @@ const STATUS_CONFIG: Record<string, { label: string; color: string }> = {
 export default function AdminQuotesPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const [quotes, setQuotes] = useState<any[]>([]);
   const [selected, setSelected] = useState<any>(null);
   const supabase = createClient();
-  const { locale } = await params;
+  const { locale } = use(params);
 
   async function load() {
     const { data } = await supabase

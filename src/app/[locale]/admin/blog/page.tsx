@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useState, useEffect } from "react";
+// import React from "react";
+import { useState, useEffect, use } from "react";
 import { createClient } from "@/shared/lib/supabase/client";
 import { Button } from "@/shared/ui/button";
 import { Badge } from "@/shared/ui/badge";
@@ -8,12 +8,12 @@ import Link from "next/link";
 import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
 import { formatDate } from "@/shared/lib/utils";
 
-export default async function AdminBlogPage({
+export default function AdminBlogPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = use(params);
   const [articles, setArticles] = useState<any[]>([]);
   const supabase = createClient();
 

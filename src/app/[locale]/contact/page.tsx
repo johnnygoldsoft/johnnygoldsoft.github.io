@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+// import React from "react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, use } from "react";
 import { motion } from "framer-motion";
 import { contactSchema } from "@/features/shop/schemas";
 import { sendContactEmail } from "@/features/shop/actions";
@@ -14,10 +14,10 @@ import { Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
 export default function ContactPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const t = useTranslations("contact");
-  const { locale } = await params;
+  const { locale } = use(params);
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { createClient } from "@/shared/lib/supabase/client";
 import { Input } from "@/shared/ui/input";
 import { Textarea } from "@/shared/ui/textarea";
@@ -10,7 +10,7 @@ import { Plus, Trash2, Pencil, ExternalLink, Eye, EyeOff } from "lucide-react";
 export default function AdminProductsPage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const [products, setProducts] = useState<any[]>([]);
   const [categories, setCategories] = useState<any[]>([]);
@@ -29,7 +29,7 @@ export default function AdminProductsPage({
   });
   const supabase = createClient();
   // const locale = params.locale;
-  const { locale } = await params;
+  const { locale } = use(params);
 
   async function load() {
     const [{ data: prods }, { data: cats }] = await Promise.all([

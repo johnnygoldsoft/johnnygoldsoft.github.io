@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function EditProjectPage({
   params,
 }: {
-  params: { locale: string; id: string };
+  params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = use(params);
   const router = useRouter();
@@ -74,7 +74,7 @@ export default function EditProjectPage({
     <div className="container mx-auto px-6 py-8 max-w-2xl">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <Link href={`/${params.locale}/admin/projects`}>
+          <Link href={`/${locale}/admin/projects`}>
             <Button variant="ghost" size="icon">
               <ArrowLeft className="h-4 w-4" />
             </Button>

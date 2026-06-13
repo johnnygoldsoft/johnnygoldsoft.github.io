@@ -126,5 +126,23 @@
     "toggle_theme": "Toggle theme",
     "toggle_lang": "Changer la langue",
     "quote_request": "Request a quote"
+  },
+
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have a question or a project in mind? Drop us a line!",
+    "reply_delay": "Reply within 24h",
+    "availability": "Available for new projects",
+    "success_title": "Message sent!",
+    "success_message": "Thank you, your message has been transmitted successfully.",
+    "new_message": "New message",
+    "name": "Full name",
+    "email": "Email address",
+    "subject": "Subject",
+    "service": "Requested service",
+    "message": "Your message",
+    "error_message": "An error occurred during validation or submission.",
+    "sending": "Sending...",
+    "send": "Send message"
   }
 }

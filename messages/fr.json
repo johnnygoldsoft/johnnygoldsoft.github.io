@@ -126,5 +126,23 @@
     "toggle_theme": "Changer le thème",
     "toggle_lang": "Switch language",
     "quote_request": "Demande de devis"
+  },
+
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question ou un projet en tête ? Écrivez-nous !",
+    "reply_delay": "Réponse sous 24h",
+    "availability": "Disponible pour de nouveaux projets",
+    "success_title": "Message envoyé !",
+    "success_message": "Merci, votre message a bien été transmis avec succès.",
+    "new_message": "Nouveau message",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "subject": "Objet",
+    "service": "Service souhaité",
+    "message": "Votre message",
+    "error_message": "Une erreur est survenue lors de la validation ou de l'envoi.",
+    "sending": "Envoi en cours...",
+    "send": "Envoyer le message"
   }
 }

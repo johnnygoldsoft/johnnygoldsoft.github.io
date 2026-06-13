@@ -141,13 +141,14 @@ export function HeroSection({ about, locale }: HeroProps) {
             className="flex justify-center order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Cadre décoratif */}
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-border shadow-lg">
+              {/* AJOUT DE LA CLASSE 'relative' SUR LE PARENT DIRECT DE <Image /> */}
+              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-border shadow-lg">
                 {about?.photo_url ? (
                   <Image
                     src={about.photo_url}
                     alt="Jean Claude SASSOU"
                     fill
+                    sizes="(max-width: 768px) 256px, 288px" // Optimise le chargement responsive
                     className="object-cover"
                     priority
                   />
@@ -157,8 +158,9 @@ export function HeroSection({ about, locale }: HeroProps) {
                   </div>
                 )}
               </div>
+
               {/* Badge disponible */}
-              <div className="absolute -bottom-3 -right-3 bg-card border border-border rounded-lg px-3 py-1.5 shadow-md">
+              <div className="absolute -bottom-3 -right-3 bg-card border border-border rounded-lg px-3 py-1.5 shadow-md z-10">
                 <div className="flex items-center gap-1.5 text-xs font-medium">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   Disponible

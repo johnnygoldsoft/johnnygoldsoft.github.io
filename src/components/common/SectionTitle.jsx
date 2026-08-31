@@ -1,56 +1,61 @@
-import { motion } from "framer-motion";
-import React from "react";
+"use client";
 
-/**
- * SectionTitle Component - Titre de section réutilisable
- * Inspiré par shadcn/ui patterns
- */
+import React from "react";
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/Badge";
+
 export function SectionTitle({
-  subtitle,
-  title,
-  description,
-  centered = true,
-  className = "",
+  badge = "",
+  subtitle = "",
+  title = "",
+  description = "",
+  align = "center",
 }) {
+  const isCentered = align === "center";
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`${centered ? "text-center" : ""} ${className}`}
+    <div
+      className={`flex flex-col ${
+        isCentered ? "items-center text-center" : "items-start text-left"
+      } max-w-3xl ${isCentered ? "mx-auto" : ""} mb-12 sm:mb-16`}
     >
-      {subtitle && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-2 text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide"
+      {(badge || subtitle) && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-3"
         >
-          {subtitle}
-        </motion.p>
+          <Badge variant="default" className="text-xs uppercase tracking-wider font-bold">
+            {badge || subtitle}
+          </Badge>
+        </motion.div>
       )}
 
-      <motion.h2
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl"
-      >
-        {title}
-      </motion.h2>
+      {title && (
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+        >
+          {title}
+        </motion.h2>
+      )}
 
       {description && (
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className={`text-lg text-gray-600 dark:text-gray-400 ${
-            centered ? "mx-auto max-w-2xl" : ""
-          }`}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed"
         >
           {description}
         </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }

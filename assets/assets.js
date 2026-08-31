@@ -113,62 +113,67 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend Festijet",
-    description: "Fontend Festijet ui ...",
+    title: "Festijet Event & Billetterie",
+    description: "Conception de l'interface utilisateur et de l'expérience d'achat de billets événementiels pour Festijet.",
     bgImage: assets.festi_ui,
     category: "UI/UX Design",
+    link: "https://github.com/johnnygoldsoft",
   },
   {
-    title: "Frontend EBD",
-    description: "front end EBD ui ...",
+    title: "Plateforme EBD",
+    description: "Design d'interface moderne et ergonomique pour la plateforme de gestion et services EBD.",
     bgImage: assets.ebd_ui,
     category: "UI/UX Design",
+    link: "https://github.com/johnnygoldsoft",
   },
-
   {
-    title: "Frontend AIPJeunes",
-    description: "front end AIPJeunes ui ...",
+    title: "Portail Jeunesse AIPJeunes",
+    description: "Conception UI/UX interactive et engageante du portail d'accompagnement de la jeunesse AIPJeunes.",
     bgImage: assets.aip,
     category: "UI/UX Design",
+    link: "https://github.com/johnnygoldsoft",
   },
-
   {
-    title: "Site web CDEJ",
-    description: "CDEJ Siteweb ...",
+    title: "Site web CDEJ Jéhovah Jireh",
+    description: "Plateforme web complète et responsive pour le Centre de Développement des Enfants et Jeunes.",
     bgImage: assets.centre_site,
     category: "Web Design",
+    link: "https://johnnygoldsoft.github.io",
   },
-
   {
-    title: "Site web Sproca",
-    description: "Sproca Sitexeb ...",
+    title: "Site web & Catalogue Sproca",
+    description: "Site vitrine institutionnel et présentation des services pour l'entreprise Sproca.",
     bgImage: assets.sproca,
     category: "Web Design",
+    link: "https://github.com/johnnygoldsoft",
   },
   {
-    title: "evlalcit UI",
-    description: "Evalcit app ui ",
+    title: "Evalcit UI & Design System",
+    description: "Kit d'interface utilisateur, typographie et composants interactifs sous Figma pour l'application Evalcit.",
     bgImage: assets.evalcit_ui,
     category: "UI/UX Design",
+    link: "https://github.com/johnnygoldsoft",
   },
   {
-    title: "Feedplate App",
-    description: "mobile front end app",
+    title: "Feedplate Food Delivery",
+    description: "Application mobile fluide de commande et livraison de repas avec gestion de panier et suivi en temps réel.",
     bgImage: assets.front1,
     category: "Mobile App",
+    link: "https://github.com/johnnygoldsoft",
   },
   {
-    title: "Newsly App",
-    description: "mobile front end app",
+    title: "Newsly Actualités",
+    description: "Application mobile d'actualités et flux médias personnalisés avec mode hors ligne et notifications push.",
     bgImage: assets.front2,
     category: "Mobile App",
+    link: "https://github.com/johnnygoldsoft",
   },
-
   {
-    title: "Socialy App",
-    description: "mobile front end app",
+    title: "Socialy Réseau Social",
+    description: "Application mobile sociale avec messagerie instantanée, partage de posts multimédias et interactions réactives.",
     bgImage: assets.front3,
     category: "Mobile App",
+    link: "https://github.com/johnnygoldsoft",
   },
 ];
 

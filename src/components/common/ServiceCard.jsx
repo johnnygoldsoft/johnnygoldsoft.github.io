@@ -1,70 +1,71 @@
-import { cn } from "@/lib/cn";
+"use client";
+
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import React from "react";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { IconSparkles, IconCheck } from "@/components/ui/Icons";
 
-/**
- * ServiceCard Component - Carte de service réutilisable
- * Inspiré par shadcn/ui patterns
- */
 export function ServiceCard({
-  icon,
+  icon: IconComponent,
+  iconColor = "from-blue-500/10 via-indigo-500/10 to-purple-500/10 text-blue-600 dark:text-cyan-400 border-blue-500/20",
   title,
   description,
-  href = "#contact",
-  className = "",
+  features = [],
   index = 0,
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
-      className={cn(
-        "group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg dark:border-gray-800 dark:bg-gray-950",
-        className
-      )}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-blue-950/20" />
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Icon */}
-        <motion.div
-          animate={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 p-2"
-        >
-          <Image src={icon} alt={title} className="h-6 w-6" />
-        </motion.div>
-
-        {/* Title */}
-        <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-gray-50">
-          {title}
-        </h3>
-
-        {/* Description */}
-        <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-          {description}
-        </p>
-
-        {/* Link */}
-        <motion.a
-          href={href}
-          whileHover={{ x: 4 }}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-        >
-          En savoir plus
-          <motion.span
-            animate={{ x: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+      <SpotlightCard className="h-full flex flex-col justify-between p-6 sm:p-7">
+        <div>
+          {/* Vector Icon Header with Cyber Glow */}
+          <div
+            className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br border p-2.5 shadow-xs transition-transform duration-300 group-hover:scale-110 ${iconColor}`}
           >
-            →
-          </motion.span>
-        </motion.a>
-      </div>
+            {typeof IconComponent === "function" ? (
+              <IconComponent className="h-6 w-6" />
+            ) : IconComponent && typeof IconComponent === "object" ? (
+              <Image
+                src={IconComponent}
+                alt={title}
+                className="h-6 w-6 object-contain"
+              />
+            ) : (
+              <IconSparkles className="h-6 w-6" />
+            )}
+          </div>
+
+          {/* Service Title */}
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+            {title}
+          </h3>
+
+          {/* Description */}
+          <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* Feature bullets */}
+        {features && features.length > 0 && (
+          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 space-y-2">
+            {features.map((feature, fIdx) => (
+              <div
+                key={fIdx}
+                className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300"
+              >
+                <IconCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <span>{feature}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </SpotlightCard>
     </motion.div>
   );
 }

@@ -1,329 +1,184 @@
 "use client";
 
-import Image from "next/image";
-import { assets } from "../../../assets/assets";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { assets } from "../../../assets/assets";
 import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { LiveTerminal } from "@/components/common/LiveTerminal";
+import {
+  IconArrowRight,
+  IconGithub,
+  IconLinkedin,
+  IconMail,
+  IconSparkles,
+  IconCode,
+  IconSmartphone,
+  IconDownload,
+} from "@/components/ui/Icons";
 
-/**
- * Header Component - Section Hero Moderne
- * Design ultra-moderne avec animations sophistiquées
- * Inspiré par shadcn/ui et design patterns modernes
- */
 export default function Header() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const roles = [
+    "Ingénieur d'Applications & Full-Stack",
+    "Développeur Mobile Flutter & Cross-Platform",
+    "Architecte Solutions Next.js & Laravel",
+    "Designer d'Expérience & Interfaces UI/UX",
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, type: "spring", stiffness: 100 },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-    },
-  };
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white dark:from-gray-950 dark:via-blue-950/20 dark:to-gray-950">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Gradient Orbs */}
-        <motion.div
-          className="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 opacity-20 blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/4 h-96 w-96 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 opacity-20 blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 opacity-10 blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center gap-8 px-4 sm:px-8 py-20">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center gap-8 text-center"
-        >
-          {/* Badge */}
+    <section
+      id="top"
+      className="relative min-h-[92vh] sm:min-h-screen w-full flex items-center justify-center pt-24 sm:pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    >
+      <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        {/* Left Column: Headline & Studio Introduction */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+          {/* Availability Status Badge */}
           <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/50 px-4 py-2 backdrop-blur-sm dark:border-blue-800 dark:bg-blue-950/30"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
-            </span>
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
-              Disponible pour de nouveaux projets
-            </span>
-          </motion.div>
-
-          {/* Profile Image with Glow */}
-          <motion.div
-            variants={itemVariants}
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
-            className="relative"
-          >
-            {/* Glow Effect */}
-            <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 opacity-0 blur-xl"
-              animate={{ opacity: isHovered ? 0.5 : 0 }}
-              transition={{ duration: 0.3 }}
-            />
-
-            {/* Profile Image */}
-            <motion.div
-              animate={floatingVariants.animate}
-              className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-white shadow-2xl ring-4 ring-blue-200 dark:border-gray-800 dark:ring-blue-900"
-            >
-              <Image
-                src={assets.profile_pic}
-                alt="Profile Picture"
-                fill
-                className="object-cover"
-                priority
-              />
-
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
-            </motion.div>
-          </motion.div>
-
-          {/* Greeting with Animation */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center justify-center gap-3"
-          >
-            <span className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-              Bienvenue ! Je suis
-            </span>
-            <motion.div
-              animate={{ rotate: [0, 25, -25, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-              className="origin-center"
-            >
-              <Image
-                src={assets.hand_icon}
-                alt="Wave"
-                className="h-7 w-7"
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* Main Title with Gradient */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-4"
-          >
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400">
-                Jean Claude SASSOU
+            <Badge variant="glass" pulse={true} className="py-1.5 px-4 text-xs font-semibold">
+              <span className="text-slate-800 dark:text-slate-200">
+                Studio Ouvert • Disponible pour Missions & CDI
               </span>
-            </h1>
-
-            {/* Subtitle with Animation */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="space-y-2"
-            >
-              <p className="text-2xl font-bold text-gray-900 dark:text-gray-50 sm:text-3xl">
-                Web & Mobile Developer
-              </p>
-              <p className="text-lg font-semibold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text dark:from-blue-400 dark:to-purple-400">
-                IT Specialist & Digital Solutions Architect
-              </p>
-            </motion.div>
+            </Badge>
           </motion.div>
 
-          {/* Description with Better Typography */}
-          <motion.div
-            variants={itemVariants}
-            className="max-w-3xl space-y-4"
+          {/* Monumental Kinetic Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]"
           >
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-              Développeur Web et Mobile passionné, spécialisé dans la création de solutions numériques innovantes. Mon expertise couvre le développement d'applications performantes, l'architecture système et la gestion des infrastructures informatiques complexes.
-            </p>
+            Créer des produits <br />
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-purple-400">
+              digitaux d'impact.
+            </span>
+          </motion.h1>
 
-            {/* Skills Pills */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-wrap justify-center gap-2"
-            >
-              {["React", "Next.js", "TypeScript", "Node.js", "Cloud"].map(
-                (skill, idx) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
-                    whileHover={{ scale: 1.1 }}
-                    className="rounded-full bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 text-sm font-semibold text-blue-700 dark:from-blue-900/30 dark:to-purple-900/30 dark:text-blue-300"
-                  >
-                    {skill}
-                  </motion.span>
-                )
-              )}
-            </motion.div>
-          </motion.div>
+          {/* Rotating Specialty Role */}
+          <div className="h-10 sm:h-12 mt-4 flex items-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentRoleIndex}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+                className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+              >
+                <IconSparkles className="w-5 h-5 text-cyan-500 shrink-0" />
+                <span>{roles[currentRoleIndex]}</span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-          {/* CTA Buttons with Enhanced Design */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col gap-4 sm:flex-row pt-4"
+          {/* Pitch & Philosophy */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                asChild
-                className="gap-2 px-8 py-3 text-lg font-semibold"
-              >
-                <a href="#contact">
-                  Me contacter
-                  
-                </a>
-              </Button>
-            </motion.div>
+            Je suis <strong>Jean-Claude Sassou</strong>. J'accompagne startups, entreprises et porteurs de projets dans la conception d'applications mobiles réactives (Flutter) et de plateformes web modernes haute performance.
+          </motion.p>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                variant="outline"
-                asChild
-                className="gap-2 px-8 py-3 text-lg font-semibold"
-              >
-                <a href="/jeanclaudesas_cv_finale.pdf" download>
-                  Télécharger CV
-                </a>
+          {/* Quick Action Docks */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 flex flex-wrap items-center gap-3.5"
+          >
+            <a href="#work">
+              <Button size="lg" variant="default" className="shadow-lg shadow-blue-500/20">
+                <span>Découvrir mes projets</span>
+                <IconArrowRight className="w-4 h-4" />
               </Button>
-            </motion.div>
+            </a>
+
+            <a href="/jeanclaudesas_cv_finale.pdf" download="CV_Jean_Claude_Sassou.pdf">
+              <Button size="lg" variant="secondary" className="flex items-center gap-2">
+                <IconDownload className="w-4 h-4" />
+                <span>Mon CV (PDF)</span>
+              </Button>
+            </a>
+
+            <a href="#contact">
+              <Button size="lg" variant="ghost">
+                <span>Me contacter</span>
+              </Button>
+            </a>
           </motion.div>
 
-          {/* Stats Section */}
+          {/* Social Proof & Networks */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200 dark:border-gray-800"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-10 pt-6 border-t border-slate-200/80 dark:border-slate-800/80 flex items-center gap-6"
           >
-            {[
-              { label: "Projets", value: "50+" },
-              { label: "Clients", value: "30+" },
-              { label: "Années", value: "5+" },
-            ].map((stat, idx) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 + idx * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <span>Réponse garantie &lt; 24h</span>
+            </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-              Scroll pour explorer
-            </span>
-            <svg
-              className="h-6 w-6 text-blue-600 dark:text-blue-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </div>
-        </motion.div>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://github.com/johnnygoldsoft"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-black dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-white transition-all shadow-xs"
+              >
+                <IconGithub className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jean-claude-sassou/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-blue-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-blue-400 transition-all shadow-xs"
+              >
+                <IconLinkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:johnnygoldsoft@gmail.com"
+                aria-label="Email"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-red-500 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-red-400 transition-all shadow-xs"
+              >
+                <IconMail className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Live Dev Terminal */}
+        <div className="lg:col-span-5 flex justify-center items-center relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="w-full flex justify-center"
+          >
+            <LiveTerminal />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
 }
-
-/**
- * Design Philosophy (Modern & Professional):
- * - Ultra-modern gradient design with animated backgrounds
- * - Sophisticated animations with spring physics
- * - Accessible focus states and keyboard navigation
- * - Responsive design (mobile-first)
- * - Dark mode support with proper contrast
- * - Semantic HTML and ARIA labels
- * - Performance optimized with lazy loading
- * - Professional typography hierarchy
- * - Interactive elements with hover feedback
- * - Stats section for credibility
- */

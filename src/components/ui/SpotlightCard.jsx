@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 export function SpotlightCard({
   children,
   className = "",
-  spotlightColor = "rgba(59, 130, 246, 0.15)",
+  spotlightColor = "rgba(245, 158, 11, 0.14)",
   ...props
 }) {
   const divRef = useRef(null);
@@ -34,7 +34,7 @@ export function SpotlightCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:border-blue-500/30 dark:border-slate-800/80 dark:bg-slate-900/80 dark:hover:border-blue-400/30 overflow-hidden",
+        "relative rounded-2xl border border-stone-200/90 bg-white/95 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:border-amber-500/40 dark:border-amber-500/15 dark:bg-[#171412]/95 dark:hover:border-amber-500/35 overflow-hidden",
         className
       )}
       {...props}

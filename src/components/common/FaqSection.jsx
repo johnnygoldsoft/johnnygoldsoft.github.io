@@ -59,19 +59,19 @@ export function FaqSection() {
             return (
               <div
                 key={index}
-                className="rounded-2xl border border-slate-200/80 bg-white/80 dark:border-slate-800 dark:bg-slate-900/80 overflow-hidden transition-all duration-200 shadow-xs"
+                className="rounded-2xl border border-stone-200/90 bg-white/95 dark:border-amber-500/15 dark:bg-[#171412]/95 overflow-hidden transition-all duration-200 shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">
+                  <span className="font-bold text-base sm:text-lg text-stone-900 dark:text-stone-100">
                     {faq.question}
                   </span>
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-blue-600 dark:text-blue-400" : "text-slate-500"
+                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 text-amber-600 dark:text-amber-400 border-amber-500/30" : "text-stone-500"
                     }`}
                   >
                     <IconChevronDown className="w-4 h-4" />
@@ -86,7 +86,7 @@ export function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-5 sm:px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                      <div className="px-5 sm:px-6 pb-6 text-sm text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -98,12 +98,12 @@ export function FaqSection() {
         </div>
 
         {/* Need more help banner */}
-        <div className="mt-10 p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-900/40 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 p-6 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
-            <p className="text-sm font-bold text-slate-900 dark:text-white">
+            <p className="text-sm font-bold text-stone-900 dark:text-stone-100">
               Vous avez une question spécifique sur votre projet ?
             </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
               Échangeons directement par message pour obtenir un retour immédiat.
             </p>
           </div>

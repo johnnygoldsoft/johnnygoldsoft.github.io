@@ -28,7 +28,7 @@ export function BentoGrid() {
       desc: "Applications Android & iOS avec architecture réactive et intégrations cloud.",
       skills: ["Flutter 3.x", "Dart", "Firebase", "State Management (Bloc/Provider)", "REST APIs"],
       icon: IconSmartphone,
-      color: "text-blue-600 dark:text-blue-400",
+      color: "text-amber-600 dark:text-amber-400",
     },
     {
       category: "web",
@@ -36,7 +36,7 @@ export function BentoGrid() {
       desc: "Interfaces ultra-réactives, optimisées SEO avec SSR/SSG et micro-animations.",
       skills: ["Next.js 15", "React 19", "Tailwind CSS v4", "JavaScript ES6+", "Framer Motion"],
       icon: IconCode,
-      color: "text-sky-600 dark:text-sky-400",
+      color: "text-yellow-600 dark:text-yellow-400",
     },
     {
       category: "backend",
@@ -44,7 +44,7 @@ export function BentoGrid() {
       desc: "Architectures serveur sécurisées, gestion de bases de données et webhooks.",
       skills: ["Laravel", "PHP 8+", "Node.js", "MySQL", "MongoDB", "Auth JWT"],
       icon: IconServer,
-      color: "text-purple-600 dark:text-purple-400",
+      color: "text-orange-600 dark:text-orange-400",
     },
     {
       category: "design",
@@ -52,7 +52,7 @@ export function BentoGrid() {
       desc: "Affiches, flyers, stickers, impressions sur tous supports, UI/UX et réseaux.",
       skills: ["Affiches, Flyers & Stickers", "Impression sur tous supports", "UI/UX Figma", "Câblage & Réseaux Wi-Fi"],
       icon: IconPalette,
-      color: "text-amber-600 dark:text-amber-400",
+      color: "text-amber-500 dark:text-amber-300",
     },
   ];
 
@@ -63,7 +63,7 @@ export function BentoGrid() {
         {/* Large Profile & Vision Card (8 cols) */}
         <SpotlightCard className="md:col-span-7 lg:col-span-8 flex flex-col justify-between overflow-hidden p-6 sm:p-7">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-md">
+            <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-md">
               <Image
                 src={assets.user_image}
                 alt="Jean-Claude Sassou"
@@ -73,24 +73,24 @@ export function BentoGrid() {
             </div>
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge variant="default">Ingénieur Logiciel & Designer</Badge>
-                <Badge variant="success" pulse={true}>Freelance & CDI</Badge>
+                <Badge variant="default">Johnny Gold Atelier</Badge>
+                <Badge variant="success" pulse={true}>Freelance &amp; CDI</Badge>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
                 Jean-Claude Sassou
               </h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                 J'allie rigueur d'ingénierie et sensibilité graphique pour concevoir des applications web et mobiles qui résolvent de vrais problèmes métier. Chaque ligne de code est pensée pour la performance et la pérennité.
               </p>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-4 items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+          <div className="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 flex flex-wrap gap-4 items-center justify-between text-xs text-stone-500 dark:text-stone-400">
             <div className="flex items-center gap-2">
-              <IconSparkles className="w-4 h-4 text-blue-500" />
-              <span>Expertises : React, Next.js, Flutter, Laravel</span>
+              <IconSparkles className="w-4 h-4 text-amber-500" />
+              <span>Expertises : React, Next.js 15, Flutter, Laravel</span>
             </div>
-            <div className="font-semibold text-blue-600 dark:text-blue-400">
+            <div className="font-semibold text-amber-600 dark:text-amber-400">
               100% Ouvert au travail international
             </div>
           </div>
@@ -100,8 +100,8 @@ export function BentoGrid() {
         <SpotlightCard className="md:col-span-5 lg:col-span-4 flex flex-col justify-between p-6 sm:p-7">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Disponibilité & Fuseau
+              <span className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                Disponibilité &amp; Fuseau
               </span>
               <span className="flex h-2.5 w-2.5 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -111,29 +111,29 @@ export function BentoGrid() {
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400">
+                <div className="p-2 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
                   <IconMapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">Lomé, Togo</p>
-                  <p className="text-xs text-slate-500">Afrique de l'Ouest</p>
+                  <p className="text-sm font-bold text-stone-900 dark:text-stone-100">Lomé, Togo</p>
+                  <p className="text-xs text-stone-500">Afrique de l'Ouest</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400">
+                <div className="p-2 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400">
                   <IconClock className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">Fuseau GMT / UTC+0</p>
-                  <p className="text-xs text-slate-500">Synchronisation facile monde entier</p>
+                  <p className="text-sm font-bold text-stone-900 dark:text-stone-100">Fuseau GMT / UTC+0</p>
+                  <p className="text-xs text-stone-500">Synchronisation facile monde entier</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-            <span className="text-slate-500">Temps de réponse :</span>
+          <div className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs">
+            <span className="text-stone-500">Temps de réponse :</span>
             <span className="font-bold text-emerald-600 dark:text-emerald-400">&lt; 24 heures</span>
           </div>
         </SpotlightCard>

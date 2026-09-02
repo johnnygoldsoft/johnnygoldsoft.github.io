@@ -132,13 +132,13 @@ export default function Contact({ prefilledData }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Fast Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 shadow-sm space-y-6">
+            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-stone-200/90 dark:border-amber-500/15 bg-white/95 dark:bg-[#171412]/95 shadow-sm space-y-6">
               <div>
                 <Badge variant="default">Disponibilité Immédiate</Badge>
-                <h3 className="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white">
+                <h3 className="mt-3 text-2xl font-extrabold text-stone-900 dark:text-stone-100">
                   Échangeons Directement
                 </h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="mt-2 text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                   Je réponds personnellement sous 24 heures pour évaluer la faisabilité, le calendrier et le chiffrage de votre projet.
                 </p>
               </div>
@@ -166,16 +166,16 @@ export default function Contact({ prefilledData }) {
               </div>
 
               {/* 1-Click Copy Email Box */}
-              <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="p-4 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-xs">
+                  <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-stone-950 font-bold shadow-xs">
                     <IconMail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400">
                       Email professionnel
                     </p>
-                    <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white break-all">
+                    <p className="text-xs sm:text-sm font-bold text-stone-900 dark:text-stone-100 break-all">
                       {emailAddress}
                     </p>
                   </div>
@@ -184,7 +184,7 @@ export default function Contact({ prefilledData }) {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="px-3.5 py-1.5 rounded-xl border border-blue-300 dark:border-blue-700 bg-white dark:bg-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs shrink-0"
+                  className="px-3.5 py-1.5 rounded-xl border border-amber-400/50 dark:border-amber-600/50 bg-white dark:bg-stone-800 text-xs font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-stone-700 flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs shrink-0"
                 >
                   {copiedEmail ? (
                     <>
@@ -201,13 +201,13 @@ export default function Contact({ prefilledData }) {
               </div>
 
               {/* Details & Timezone */}
-              <div className="space-y-3 pt-1 text-xs text-slate-600 dark:text-slate-300">
+              <div className="space-y-3 pt-1 text-xs text-stone-600 dark:text-stone-300">
                 <div className="flex items-center gap-3">
-                  <IconMapPin className="w-4 h-4 text-blue-500 shrink-0" />
+                  <IconMapPin className="w-4 h-4 text-amber-500 shrink-0" />
                   <span>Basé à Lomé, Togo (GMT / UTC+0) • Ouvert international</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <IconClock className="w-4 h-4 text-purple-500 shrink-0" />
+                  <IconClock className="w-4 h-4 text-orange-500 shrink-0" />
                   <span>Délai moyen de réponse : <strong>Moins de 24 heures</strong></span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -217,12 +217,12 @@ export default function Contact({ prefilledData }) {
               </div>
 
               {/* Social Channels */}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+              <div className="pt-4 border-t border-stone-100 dark:border-stone-800 flex items-center gap-3">
                 <a
                   href="https://github.com/johnnygoldsoft"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 dark:text-slate-200 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 dark:border-stone-700 text-xs font-bold hover:border-amber-500/40 text-stone-700 dark:text-stone-200 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                 >
                   <IconGithub className="w-4 h-4" />
                   <span>GitHub</span>
@@ -231,7 +231,7 @@ export default function Contact({ prefilledData }) {
                   href="https://www.linkedin.com/in/jean-claude-sassou/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-blue-400 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 dark:border-stone-700 text-xs font-bold hover:border-amber-500/40 text-stone-700 dark:text-stone-200 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                 >
                   <IconLinkedin className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -242,11 +242,11 @@ export default function Contact({ prefilledData }) {
 
           {/* Right Column: High-Conversion Form */}
           <div className="lg:col-span-7">
-            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 shadow-sm">
+            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-stone-200/90 dark:border-amber-500/15 bg-white/95 dark:bg-[#171412]/95 shadow-sm">
               <form onSubmit={onSubmit} className="space-y-6">
                 {/* Project Type Selector Chips */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-3">
                     Type de projet ou besoin
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -257,8 +257,8 @@ export default function Contact({ prefilledData }) {
                         onClick={() => setSelectedType(type)}
                         className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                           selectedType === type
-                            ? "bg-blue-600 text-white shadow-xs"
-                            : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                            ? "bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-stone-950 font-bold shadow-xs"
+                            : "bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700"
                         }`}
                       >
                         {type}
@@ -272,7 +272,7 @@ export default function Contact({ prefilledData }) {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                      className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
                     >
                       Votre Nom &amp; Prénom <span className="text-rose-500">*</span>
                     </label>
@@ -284,14 +284,14 @@ export default function Contact({ prefilledData }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Ex: Alexandre Martin"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
+                      className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-800/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-800 dark:focus:ring-amber-900/30"
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                      className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
                     >
                       Votre Email Professionnel <span className="text-rose-500">*</span>
                     </label>
@@ -303,7 +303,7 @@ export default function Contact({ prefilledData }) {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Ex: alexandre@entreprise.com"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
+                      className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-800/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-800 dark:focus:ring-amber-900/30"
                     />
                   </div>
                 </div>
@@ -312,7 +312,7 @@ export default function Contact({ prefilledData }) {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-2"
                   >
                     Description de votre besoin <span className="text-rose-500">*</span>
                   </label>
@@ -324,7 +324,7 @@ export default function Contact({ prefilledData }) {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Décrivez votre idée, les fonctionnalités clés souhaitées ou votre calendrier..."
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
+                    className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-4 py-3 text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-800/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-800 dark:focus:ring-amber-900/30"
                   />
                 </div>
 
@@ -336,7 +336,7 @@ export default function Contact({ prefilledData }) {
                     variant="default"
                     isLoading={isLoading}
                     disabled={isLoading}
-                    className="w-full sm:w-auto shadow-lg shadow-blue-600/20 font-bold"
+                    className="w-full sm:w-auto shadow-lg shadow-amber-600/20 font-bold"
                   >
                     <span>Envoyer ma demande de devis</span>
                     <IconArrowRight className="w-4 h-4" />

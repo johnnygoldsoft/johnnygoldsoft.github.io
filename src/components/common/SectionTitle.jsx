@@ -39,7 +39,7 @@ export function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100"
         >
           {title}
         </motion.h2>
@@ -51,7 +51,7 @@ export function SectionTitle({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed"
+          className="mt-4 text-base sm:text-lg text-stone-600 dark:text-stone-400 max-w-2xl leading-relaxed"
         >
           {description}
         </motion.p>

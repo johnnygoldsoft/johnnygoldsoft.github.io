@@ -22,17 +22,17 @@ const Button = React.forwardRef(
 
     const variants = {
       default:
-        "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/35 hover:brightness-110 focus-visible:ring-blue-500",
+        "bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 text-stone-950 font-bold shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:brightness-105 focus-visible:ring-amber-500",
       glow:
-        "relative bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] focus-visible:ring-cyan-400",
+        "relative bg-gradient-to-r from-amber-500 to-yellow-400 text-stone-950 font-bold shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] focus-visible:ring-amber-400",
       secondary:
-        "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700/60 focus-visible:ring-slate-400",
+        "bg-stone-100 text-stone-900 hover:bg-stone-200 dark:bg-stone-800/80 dark:text-stone-100 dark:hover:bg-stone-700/80 border border-stone-200 dark:border-stone-700/60 focus-visible:ring-amber-500/50",
       outline:
-        "border border-slate-300/80 bg-transparent text-slate-800 hover:bg-slate-100/60 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800/50 focus-visible:ring-slate-500",
+        "border border-stone-300 bg-transparent text-stone-800 hover:bg-stone-100/80 hover:border-amber-500/50 dark:border-stone-700 dark:text-stone-200 dark:hover:bg-stone-800/60 dark:hover:border-amber-500/50 focus-visible:ring-amber-500",
       ghost:
-        "bg-transparent text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800/60 focus-visible:ring-slate-500",
+        "bg-transparent text-stone-700 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800/60 focus-visible:ring-amber-500",
       glass:
-        "bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/40 dark:border-white/10 text-slate-900 dark:text-white hover:bg-white/60 dark:hover:bg-slate-800/70 shadow-sm",
+        "bg-white/60 dark:bg-stone-900/60 backdrop-blur-md border border-stone-200 dark:border-amber-500/15 text-stone-900 dark:text-white hover:bg-white/80 dark:hover:bg-stone-800/70 shadow-sm",
     };
 
     const sizes = {

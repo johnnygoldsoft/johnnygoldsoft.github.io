@@ -36,7 +36,7 @@ export function TrustBar() {
   ];
 
   return (
-    <section className="w-full py-12 px-4 sm:px-6 lg:px-8 border-y border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 backdrop-blur-md">
+    <section className="w-full py-12 px-4 sm:px-6 lg:px-8 border-y border-stone-200/90 dark:border-amber-500/15 bg-white/80 dark:bg-[#141210]/60 backdrop-blur-md">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Numbers Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -49,13 +49,13 @@ export function TrustBar() {
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               className="flex flex-col items-center sm:items-start text-center sm:text-left"
             >
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400 font-mono">
+              <div className="text-3xl sm:text-4xl font-extrabold tracking-tight text-amber-600 dark:text-amber-400 font-mono">
                 {stat.value}
               </div>
-              <div className="text-sm font-bold text-slate-900 dark:text-white mt-1">
+              <div className="text-sm font-bold text-stone-900 dark:text-stone-100 mt-1">
                 {stat.label}
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              <div className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                 {stat.sub}
               </div>
             </motion.div>

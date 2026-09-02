@@ -47,14 +47,14 @@ export default function Work() {
                 onClick={() => setSelectedCategory(cat.label)}
                 className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                   isSelected
-                    ? "text-white"
-                    : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800/70"
+                    ? "text-stone-950"
+                    : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 bg-stone-100 dark:bg-stone-800/70 border border-stone-200/60 dark:border-stone-700/60"
                 }`}
               >
                 {isSelected && (
                   <motion.div
                     layoutId="activeCategoryTabPill"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg shadow-cyan-500/25"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 shadow-md shadow-amber-500/25"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -62,8 +62,8 @@ export default function Work() {
                 <span
                   className={`relative z-10 text-[11px] px-1.5 py-0.2 rounded-full ${
                     isSelected
-                      ? "bg-white/20 text-white"
-                      : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
+                      ? "bg-stone-950/15 text-stone-950"
+                      : "bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300"
                   }`}
                 >
                   {cat.count}

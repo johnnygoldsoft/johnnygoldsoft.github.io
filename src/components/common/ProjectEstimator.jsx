@@ -136,13 +136,13 @@ export function ProjectEstimator({ onSelectEstimate }) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge variant="default" className="mb-3">
-            Simulateur de Devis & Brief Express
+            Configurateur Atelier Sur-Mesure
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
             Cadrez Votre Besoin en 3 Clics
           </h2>
-          <p className="mt-3 text-base text-slate-600 dark:text-slate-300">
-            Sélectionnez votre type de projet et vos contraintes pour visualiser les livrables inclus et obtenir une proposition sur-mesure sous 24h.
+          <p className="mt-3 text-base text-stone-600 dark:text-stone-300">
+            Sélectionnez votre type de projet et vos contraintes pour visualiser les livrables inclus et obtenir une proposition d'orfèvre sous 24h.
           </p>
         </div>
 
@@ -151,8 +151,8 @@ export function ProjectEstimator({ onSelectEstimate }) {
           {/* Left Controls (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             {/* Step 1: Project Type */}
-            <div className="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
+            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
                 1. Quel type de solution souhaitez-vous développer ?
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -165,14 +165,14 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       onClick={() => setProjectType(type.id)}
                       className={`p-3.5 rounded-2xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
                         isSelected
-                          ? "bg-blue-50 border-blue-600 dark:bg-blue-950/40 dark:border-blue-500 shadow-xs"
-                          : "bg-slate-50/70 dark:bg-slate-800/40 border-slate-200/70 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                          ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
+                          : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
                       }`}
                     >
-                      <span className={`text-sm font-bold ${isSelected ? "text-blue-700 dark:text-blue-400" : "text-slate-900 dark:text-white"}`}>
+                      <span className={`text-sm font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
                         {type.label}
                       </span>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                      <span className="text-[11px] text-stone-500 dark:text-stone-400 mt-1">
                         {type.desc}
                       </span>
                     </button>
@@ -182,8 +182,8 @@ export function ProjectEstimator({ onSelectEstimate }) {
             </div>
 
             {/* Step 2: Project Scope */}
-            <div className="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
+            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
                 2. Quelle est la maturité de votre projet ?
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -196,14 +196,14 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       onClick={() => setProjectScope(scope.id)}
                       className={`p-3 rounded-2xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
                         isSelected
-                          ? "bg-blue-50 border-blue-600 dark:bg-blue-950/40 dark:border-blue-500 shadow-xs"
-                          : "bg-slate-50/70 dark:bg-slate-800/40 border-slate-200/70 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                          ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
+                          : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
                       }`}
                     >
-                      <span className={`text-xs font-bold ${isSelected ? "text-blue-700 dark:text-blue-400" : "text-slate-900 dark:text-white"}`}>
+                      <span className={`text-xs font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
                         {scope.label}
                       </span>
-                      <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                      <span className="text-[10px] text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
                         {scope.desc}
                       </span>
                     </button>
@@ -213,8 +213,8 @@ export function ProjectEstimator({ onSelectEstimate }) {
             </div>
 
             {/* Step 3: Timeline */}
-            <div className="p-6 rounded-3xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-3">
+            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
                 3. Quel est votre impératif de calendrier ?
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -227,14 +227,14 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       onClick={() => setTimeline(t.id)}
                       className={`p-3 rounded-2xl text-left transition-all cursor-pointer border ${
                         isSelected
-                          ? "bg-blue-50 border-blue-600 dark:bg-blue-950/40 dark:border-blue-500 shadow-xs"
-                          : "bg-slate-50/70 dark:bg-slate-800/40 border-slate-200/70 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                          ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
+                          : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
                       }`}
                     >
-                      <div className={`text-xs font-bold ${isSelected ? "text-blue-700 dark:text-blue-400" : "text-slate-900 dark:text-white"}`}>
+                      <div className={`text-xs font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
                         {t.label}
                       </div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                      <div className="text-[10px] text-stone-500 dark:text-stone-400 mt-0.5">
                         {t.multiplier}
                       </div>
                     </button>
@@ -246,41 +246,41 @@ export function ProjectEstimator({ onSelectEstimate }) {
 
           {/* Right Summary Card (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
-            <div className="p-7 rounded-3xl border border-blue-200/80 bg-white/95 dark:bg-slate-900/95 dark:border-blue-900/50 shadow-xl space-y-6 sticky top-24">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+            <div className="p-7 rounded-3xl border border-stone-200/90 dark:border-amber-500/20 bg-white/95 dark:bg-[#171412]/95 shadow-xl space-y-6 sticky top-24">
+              <div className="flex items-center justify-between pb-4 border-b border-stone-100 dark:border-stone-800">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 block">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block">
                     Synthèse de votre cadrage
                   </span>
-                  <h3 className="text-xl font-black text-slate-900 dark:text-white mt-0.5">
+                  <h3 className="text-xl font-black text-stone-900 dark:text-stone-100 mt-0.5">
                     {selectedTypeObj.label}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400">
+                <div className="p-2.5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400">
                   <IconCalculator className="w-6 h-6" />
                 </div>
               </div>
 
               {/* Estimated Delivery Time */}
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 flex items-center justify-between">
-                <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-slate-300">
-                  <IconClock className="w-4 h-4 text-blue-500 shrink-0" />
+              <div className="p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/70 dark:border-stone-800/80 flex items-center justify-between">
+                <div className="flex items-center gap-2.5 text-xs text-stone-600 dark:text-stone-300">
+                  <IconClock className="w-4 h-4 text-amber-500 shrink-0" />
                   <span>Délai moyen estimé :</span>
                 </div>
-                <span className="font-mono font-bold text-sm text-slate-900 dark:text-white">
+                <span className="font-mono font-bold text-sm text-stone-900 dark:text-stone-100">
                   {timeline === "urgent" ? "1 à 3 sem." : `${selectedTypeObj.defaultWeeks} sem.`}
                 </span>
               </div>
 
               {/* Included Deliverables */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
-                  Livrables & Garanties Inclus :
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-3">
+                  Livrables &amp; Garanties Inclus :
                 </h4>
                 <ul className="space-y-2.5">
                   {currentDeliverables.map((deliv, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-200">
-                      <div className="h-4 w-4 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <li key={dIdx} className="flex items-start gap-2.5 text-xs text-stone-700 dark:text-stone-300">
+                      <div className="h-4 w-4 rounded-full bg-amber-500/15 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
                         <IconCheck className="w-3 h-3" />
                       </div>
                       <span>{deliv}</span>
@@ -300,13 +300,13 @@ export function ProjectEstimator({ onSelectEstimate }) {
                 size="lg"
                 variant="default"
                 onClick={handleTransferToContact}
-                className="w-full shadow-lg shadow-blue-600/20 font-bold flex items-center justify-center gap-2"
+                className="w-full shadow-lg shadow-amber-600/20 font-bold flex items-center justify-center gap-2"
               >
-                <span>Envoyer ce brief & Obtenir un devis</span>
+                <span>Envoyer ce brief &amp; Obtenir un devis</span>
                 <IconArrowRight className="w-4 h-4" />
               </Button>
 
-              <p className="text-center text-[11px] text-slate-400">
+              <p className="text-center text-[11px] text-stone-400">
                 Devis gratuit, sans engagement • Réponse sous 24h
               </p>
             </div>

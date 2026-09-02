@@ -54,29 +54,29 @@ export function ServiceCard({
           </div>
 
           {/* Service Title */}
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+          <h3 className="text-xl font-bold text-stone-900 dark:text-stone-100">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
             {description}
           </p>
         </div>
 
         {/* Feature bullets & Action CTA */}
-        <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 space-y-4">
+        <div className="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800/80 space-y-4">
           {features && features.length > 0 && (
             <div className="space-y-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600/90 dark:text-amber-400/90 block">
                 Livrables inclus :
               </span>
               {features.map((feature, fIdx) => (
                 <div
                   key={fIdx}
-                  className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300"
+                  className="flex items-center gap-2 text-xs text-stone-600 dark:text-stone-300"
                 >
-                  <IconCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <IconCheck className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                   <span>{feature}</span>
                 </div>
               ))}
@@ -87,7 +87,7 @@ export function ServiceCard({
           <button
             type="button"
             onClick={handleRequestQuote}
-            className="w-full py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-blue-50 dark:bg-slate-800/60 dark:hover:bg-slate-800 text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            className="w-full py-2.5 px-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 hover:bg-amber-500/10 dark:bg-stone-800/60 dark:hover:bg-amber-500/15 text-stone-700 hover:text-amber-700 dark:text-stone-300 dark:hover:text-amber-300 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
           >
             <span>Demander un devis</span>
             <IconArrowRight className="w-3.5 h-3.5" />

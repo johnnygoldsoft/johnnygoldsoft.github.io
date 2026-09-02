@@ -47,7 +47,7 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-40 lg:hidden flex justify-center px-4 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center gap-1.5 px-3 py-2 rounded-full glass-pill shadow-xl border border-slate-200/90 dark:border-white/10 dark:bg-slate-900/90 backdrop-blur-xl">
+      <nav className="pointer-events-auto flex items-center gap-1.5 px-3 py-2 rounded-full glass-pill shadow-xl border border-stone-200/90 dark:border-amber-500/20 dark:bg-[#171412]/95 backdrop-blur-xl">
         {dockItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -57,15 +57,15 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
               href={item.href}
               className={`relative flex flex-col items-center justify-center p-2 rounded-full transition-all cursor-pointer ${
                 isActive
-                  ? "text-blue-600 dark:text-blue-400"
-                  : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                  ? "text-amber-700 dark:text-amber-300"
+                  : "text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-white"
               }`}
               aria-label={item.label}
             >
               {isActive && (
                 <motion.div
                   layoutId="activeDockIndicator"
-                  className="absolute inset-0 rounded-full bg-blue-50 dark:bg-slate-800/90 shadow-xs"
+                  className="absolute inset-0 rounded-full bg-amber-500/10 dark:bg-amber-500/20 shadow-xs border border-amber-500/20"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -85,18 +85,18 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
           <IconWhatsapp className="w-5 h-5" />
         </a>
 
-        <div className="w-[1px] h-5 bg-slate-200 dark:bg-slate-700 mx-0.5" />
+        <div className="w-[1px] h-5 bg-stone-200 dark:bg-stone-800 mx-0.5" />
 
         {/* Theme Toggle in Dock */}
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           aria-label="Basculer le thème"
-          className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+          className="p-2 rounded-full text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
         >
           {isDarkMode ? (
             <IconSun className="w-5 h-5 text-amber-400" />
           ) : (
-            <IconMoon className="w-5 h-5" />
+            <IconMoon className="w-5 h-5 text-stone-700" />
           )}
         </button>
       </nav>

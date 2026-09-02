@@ -17,7 +17,7 @@ export default function Services({ onSelectService }) {
   const servicesList = [
     {
       icon: IconSmartphone,
-      iconColor: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900/50",
+      iconColor: "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/25",
       title: "Applications Mobiles (Flutter)",
       description:
         "Création d'applications mobiles cross-platform pour iOS et Android avec une expérience utilisateur fluide, réactive et connectée au cloud.",
@@ -29,7 +29,7 @@ export default function Services({ onSelectService }) {
     },
     {
       icon: IconCode,
-      iconColor: "text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-900/50",
+      iconColor: "text-yellow-600 dark:text-yellow-400 bg-yellow-500/10 border-yellow-500/25",
       title: "Développement Web & SaaS",
       description:
         "Conception de plateformes web réactives, portails d'entreprise et sites vitrines propulsés par Next.js 15, React 19 et Tailwind CSS v4.",
@@ -41,7 +41,7 @@ export default function Services({ onSelectService }) {
     },
     {
       icon: IconServer,
-      iconColor: "text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-900/50",
+      iconColor: "text-orange-600 dark:text-orange-400 bg-orange-500/10 border-orange-500/25",
       title: "Architectures Backend & APIs",
       description:
         "Développement d'APIs fiables, sécurisées et évolutives en Laravel (PHP) et Node.js avec bases de données relationnelles et NoSQL.",
@@ -53,7 +53,7 @@ export default function Services({ onSelectService }) {
     },
     {
       icon: IconPalette,
-      iconColor: "text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/50 border-pink-200 dark:border-pink-900/50",
+      iconColor: "text-amber-500 dark:text-amber-300 bg-amber-500/15 border-amber-400/30",
       title: "UI/UX Design & Prototypage",
       description:
         "Conception d'interfaces centrées sur l'utilisateur, wireframes interactifs et design systems complets sous Figma avant intégration.",
@@ -65,7 +65,7 @@ export default function Services({ onSelectService }) {
     },
     {
       icon: IconBrush,
-      iconColor: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-900/50",
+      iconColor: "text-stone-800 dark:text-stone-200 bg-stone-500/10 border-stone-400/25",
       title: "Graphisme & Impression Tout Support",
       description:
         "Création visuelle percutante et production d'affiches, flyers, autocollants, étiquettes packaging et supports grand format.",
@@ -77,7 +77,7 @@ export default function Services({ onSelectService }) {
     },
     {
       icon: IconNetwork,
-      iconColor: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-900/50",
+      iconColor: "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/25",
       title: "Installation Réseau & Systèmes",
       description:
         "Déploiement d'infrastructures réseaux d'entreprise, configuration de serveurs Linux/Windows, routeurs, switchs managés et sécurité.",

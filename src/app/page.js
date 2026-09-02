@@ -59,7 +59,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+    <div className="relative min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-stone-950">
       {/* Refined Executive Ambient Background */}
       <BackgroundMatrix />
 

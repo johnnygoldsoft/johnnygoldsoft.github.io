@@ -134,28 +134,28 @@ export function ProjectEstimator({ onSelectEstimate }) {
     <section id="estimator" className="w-full px-4 py-20 sm:px-6 lg:px-8 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge variant="default" className="mb-3">
-            Configurateur Atelier Sur-Mesure
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <Badge variant="default" className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold px-3 py-1 mb-2.5">
+            Simulateur
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
-            Cadrez Votre Besoin en 3 Clics
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
+            Cadrez Votre Projet
           </h2>
-          <p className="mt-3 text-base text-stone-600 dark:text-stone-300">
-            Sélectionnez votre type de projet et vos contraintes pour visualiser les livrables inclus et obtenir une proposition d'orfèvre sous 24h.
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+            Sélectionnez votre type de solution pour visualiser le délai estimé et les livrables associés.
           </p>
         </div>
 
         {/* Interactive Estimator Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Left Controls (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5">
             {/* Step 1: Project Type */}
-            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
-                1. Quel type de solution souhaitez-vous développer ?
+            <div className="p-5 rounded-2xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-2.5">
+                1. Type de solution
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {projectTypes.map((type) => {
                   const isSelected = projectType === type.id;
                   return (
@@ -163,16 +163,16 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       key={type.id}
                       type="button"
                       onClick={() => setProjectType(type.id)}
-                      className={`p-3.5 rounded-2xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
+                      className={`p-3 rounded-xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
                         isSelected
                           ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
                           : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
                       }`}
                     >
-                      <span className={`text-sm font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
+                      <span className={`text-xs sm:text-sm font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
                         {type.label}
                       </span>
-                      <span className="text-[11px] text-stone-500 dark:text-stone-400 mt-1">
+                      <span className="text-[10px] text-stone-500 dark:text-stone-400 mt-0.5">
                         {type.desc}
                       </span>
                     </button>
@@ -182,11 +182,11 @@ export function ProjectEstimator({ onSelectEstimate }) {
             </div>
 
             {/* Step 2: Project Scope */}
-            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
-                2. Quelle est la maturité de votre projet ?
+            <div className="p-5 rounded-2xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-2.5">
+                2. Niveau d'avancement
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {scopes.map((scope) => {
                   const isSelected = projectScope === scope.id;
                   return (
@@ -194,7 +194,7 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       key={scope.id}
                       type="button"
                       onClick={() => setProjectScope(scope.id)}
-                      className={`p-3 rounded-2xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
+                      className={`p-2.5 rounded-xl text-left transition-all cursor-pointer border flex flex-col justify-between ${
                         isSelected
                           ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
                           : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
@@ -203,7 +203,7 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       <span className={`text-xs font-bold ${isSelected ? "text-amber-800 dark:text-amber-300" : "text-stone-900 dark:text-stone-100"}`}>
                         {scope.label}
                       </span>
-                      <span className="text-[10px] text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
+                      <span className="text-[10px] text-stone-500 dark:text-stone-400 mt-0.5 line-clamp-1">
                         {scope.desc}
                       </span>
                     </button>
@@ -213,11 +213,11 @@ export function ProjectEstimator({ onSelectEstimate }) {
             </div>
 
             {/* Step 3: Timeline */}
-            <div className="p-6 rounded-3xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
-                3. Quel est votre impératif de calendrier ?
+            <div className="p-5 rounded-2xl bg-white/90 dark:bg-[#171412]/90 border border-stone-200/90 dark:border-amber-500/15 shadow-xs">
+              <label className="text-[11px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 block mb-2.5">
+                3. Calendrier souhaité
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {timelines.map((t) => {
                   const isSelected = timeline === t.id;
                   return (
@@ -225,7 +225,7 @@ export function ProjectEstimator({ onSelectEstimate }) {
                       key={t.id}
                       type="button"
                       onClick={() => setTimeline(t.id)}
-                      className={`p-3 rounded-2xl text-left transition-all cursor-pointer border ${
+                      className={`p-2.5 rounded-xl text-left transition-all cursor-pointer border ${
                         isSelected
                           ? "bg-amber-500/10 border-amber-500 dark:bg-amber-500/20 dark:border-amber-400 shadow-xs"
                           : "bg-stone-50/70 dark:bg-stone-900/50 border-stone-200/70 dark:border-stone-800 hover:border-amber-500/40 dark:hover:border-amber-500/30"
@@ -246,64 +246,58 @@ export function ProjectEstimator({ onSelectEstimate }) {
 
           {/* Right Summary Card (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
-            <div className="p-7 rounded-3xl border border-stone-200/90 dark:border-amber-500/20 bg-white/95 dark:bg-[#171412]/95 shadow-xl space-y-6 sticky top-24">
-              <div className="flex items-center justify-between pb-4 border-b border-stone-100 dark:border-stone-800">
+            <div className="p-5 sm:p-6 rounded-2xl border border-stone-200/90 dark:border-amber-500/20 bg-white/95 dark:bg-[#171412]/95 shadow-md space-y-4 sticky top-24">
+              <div className="flex items-center justify-between pb-3 border-b border-stone-100 dark:border-stone-800">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block">
-                    Synthèse de votre cadrage
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block">
+                    Synthèse de cadrage
                   </span>
-                  <h3 className="text-xl font-black text-stone-900 dark:text-stone-100 mt-0.5">
+                  <h3 className="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 mt-0.5">
                     {selectedTypeObj.label}
                   </h3>
                 </div>
-                <div className="p-2.5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400">
-                  <IconCalculator className="w-6 h-6" />
+                <div className="p-2 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400">
+                  <IconCalculator className="w-5 h-5" />
                 </div>
               </div>
 
               {/* Estimated Delivery Time */}
-              <div className="p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/70 dark:border-stone-800/80 flex items-center justify-between">
-                <div className="flex items-center gap-2.5 text-xs text-stone-600 dark:text-stone-300">
-                  <IconClock className="w-4 h-4 text-amber-500 shrink-0" />
-                  <span>Délai moyen estimé :</span>
+              <div className="p-3 rounded-xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200/70 dark:border-stone-800/80 flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs text-stone-600 dark:text-stone-300">
+                  <IconClock className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                  <span>Délai estimé :</span>
                 </div>
-                <span className="font-mono font-bold text-sm text-stone-900 dark:text-stone-100">
+                <span className="font-mono font-bold text-xs sm:text-sm text-stone-900 dark:text-stone-100">
                   {timeline === "urgent" ? "1 à 3 sem." : `${selectedTypeObj.defaultWeeks} sem.`}
                 </span>
               </div>
 
               {/* Included Deliverables */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-3">
-                  Livrables &amp; Garanties Inclus :
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-2">
+                  Livrables inclus :
                 </h4>
-                <ul className="space-y-2.5">
+                <ul className="space-y-1.5">
                   {currentDeliverables.map((deliv, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-2.5 text-xs text-stone-700 dark:text-stone-300">
-                      <div className="h-4 w-4 rounded-full bg-amber-500/15 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                        <IconCheck className="w-3 h-3" />
+                    <li key={dIdx} className="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300">
+                      <div className="h-3.5 w-3.5 rounded-full bg-amber-500/15 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <IconCheck className="w-2.5 h-2.5" />
                       </div>
-                      <span>{deliv}</span>
+                      <span className="leading-snug">{deliv}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Guarantees Box */}
-              <div className="p-3.5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/40 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2.5">
-                <IconShield className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <span>Propriété intellectuelle intégrale &amp; support 30 jours inclus.</span>
-              </div>
-
               {/* CTA Transfer to Form */}
               <Button
-                size="lg"
+                size="md"
                 variant="default"
                 onClick={handleTransferToContact}
-                className="w-full shadow-lg shadow-amber-600/20 font-bold flex items-center justify-center gap-2"
+                className="w-full shadow-md shadow-amber-600/20 font-bold flex items-center justify-center gap-2"
               >
-                <span>Envoyer ce brief &amp; Obtenir un devis</span>
-                <IconArrowRight className="w-4 h-4" />
+                <span>Envoyer ce brief &amp; Devis</span>
+                <IconArrowRight className="w-3.5 h-3.5" />
               </Button>
 
               <p className="text-center text-[11px] text-stone-400">

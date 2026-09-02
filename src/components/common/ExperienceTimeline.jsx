@@ -64,31 +64,31 @@ export function ExperienceTimeline() {
   ];
 
   return (
-    <div className="relative border-l-2 border-cyan-200 dark:border-cyan-900/60 ml-4 sm:ml-8 space-y-10 py-4">
+    <div className="relative border-l-2 border-stone-200 dark:border-amber-500/25 ml-4 sm:ml-8 space-y-8 py-2">
       {experiences.map((item, idx) => (
         <motion.div
           key={idx}
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -15 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: idx * 0.1 }}
+          transition={{ duration: 0.4, delay: idx * 0.07 }}
           className="relative pl-6 sm:pl-8 group"
         >
           {/* Timeline Node Bullet */}
-          <div className="absolute -left-[17px] top-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-cyan-500 bg-white shadow-md dark:bg-slate-900 dark:border-cyan-400 group-hover:scale-110 transition-transform">
+          <div className="absolute -left-[17px] top-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-amber-500/60 bg-white shadow-sm dark:bg-[#171412] dark:border-amber-500/60 group-hover:scale-110 transition-transform">
             {item.type === "work" ? (
-              <IconBriefcase className="h-4 w-4 text-blue-600 dark:text-cyan-400" />
+              <IconBriefcase className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
             ) : item.type === "cert" ? (
-              <IconShield className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <IconShield className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
             ) : (
-              <IconGraduationCap className="h-4 w-4 text-purple-600 dark:purple-400" />
+              <IconGraduationCap className="h-3.5 w-3.5 text-yellow-600 dark:text-yellow-400" />
             )}
           </div>
 
           {/* Timeline Card */}
-          <div className="rounded-2xl border border-slate-200/80 bg-white/85 p-5 shadow-xs backdrop-blur-md transition-all duration-300 hover:shadow-md hover:border-cyan-300 dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-cyan-700">
+          <div className="rounded-2xl border border-stone-200/90 bg-white/95 p-4 sm:p-5 shadow-xs backdrop-blur-md transition-all duration-300 hover:shadow-md hover:border-amber-500/35 dark:border-amber-500/15 dark:bg-[#171412]/95 dark:hover:border-amber-500/35">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 tracking-wide uppercase">
+              <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 tracking-wider uppercase font-mono">
                 {item.period}
               </span>
               <Badge
@@ -97,8 +97,9 @@ export function ExperienceTimeline() {
                     ? "default"
                     : item.type === "cert"
                     ? "success"
-                    : "purple"
+                    : "warning"
                 }
+                className="text-[10px] font-bold px-2 py-0.5"
               >
                 {item.type === "work"
                   ? "Expérience"
@@ -108,22 +109,22 @@ export function ExperienceTimeline() {
               </Badge>
             </div>
 
-            <h3 className="mt-2 text-lg font-bold text-slate-900 dark:text-white">
+            <h3 className="mt-1.5 text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100">
               {item.role}
             </h3>
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+            <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">
               {item.company}
             </p>
 
-            <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="mt-2 text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
               {item.description}
             </p>
 
-            <div className="mt-4 flex flex-wrap gap-1.5">
+            <div className="mt-3 flex flex-wrap gap-1">
               {item.skills.map((skill, sIdx) => (
                 <span
                   key={sIdx}
-                  className="rounded-md bg-slate-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-700 dark:text-slate-300"
+                  className="rounded-md bg-stone-100 dark:bg-stone-850 px-2 py-0.5 text-[10px] font-semibold text-stone-600 dark:text-stone-300 border border-stone-200/40 dark:border-stone-750"
                 >
                   {skill}
                 </span>

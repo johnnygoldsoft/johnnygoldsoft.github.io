@@ -15,43 +15,35 @@ export function ProcessSteps() {
   const steps = [
     {
       number: "01",
-      title: "Cadrage & Devis Clair",
-      timing: "Sous 24 à 48 heures",
+      title: "Cadrage & Devis",
+      timing: "24 à 48h",
       icon: IconSparkles,
       color: "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/25",
-      description:
-        "Nous échangeons sur vos objectifs, fonctionnalités attendues et délais. Vous recevez une proposition détaillée, transparente et chiffrée sans engagement.",
-      points: ["Analyse de faisabilité technique", "Planning précis de livraison", "Devis détaillé sans surprise"],
+      description: "Analyse de faisabilité, estimation claire et proposition chiffrée sans surprise ni engagement.",
     },
     {
       number: "02",
-      title: "Design UI/UX & Prototypage",
+      title: "Design UI/UX",
       timing: "Étape 2",
       icon: IconPalette,
       color: "text-yellow-600 dark:text-yellow-400 bg-yellow-500/10 border-yellow-500/25",
-      description:
-        "Création des wireframes et maquettes interactives sur Figma. Vous visualisez et testez l'expérience utilisateur complète avant d'écrire la moindre ligne de code.",
-      points: ["Parcours utilisateur optimisé", "Design System réutilisable", "Validation interactive ensemble"],
+      description: "Maquettes interactives sur Figma testées et validées ensemble avant la moindre ligne de code.",
     },
     {
       number: "03",
-      title: "Développement Itératif",
+      title: "Développement",
       timing: "Étape 3",
       icon: IconCode,
       color: "text-orange-600 dark:text-orange-400 bg-orange-500/10 border-orange-500/25",
-      description:
-        "Développement avec les technologies les plus robustes (Next.js, Flutter, Laravel). Vous suivez les avancées avec des démonstrations intermédiaires régulières.",
-      points: ["Code propre & maintenable", "Tests fonctionnels continus", "Points d'étape transparents"],
+      description: "Architecture propre (Flutter, Next.js, Laravel) et démonstrations intermédiaires régulières.",
     },
     {
       number: "04",
-      title: "Déploiement & Support Offert",
-      timing: "Livraison finale",
+      title: "Déploiement & Suivi",
+      timing: "Livraison",
       icon: IconShield,
       color: "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/25",
-      description:
-        "Mise en ligne en production (Serveur, Stores iOS/Android). Formation à la prise en main et garantie de 30 jours de support offerts pour une sérénité totale.",
-      points: ["Publication App Store / Play Store / Cloud", "100% transfert de propriété du code", "30 jours de support inclus"],
+      description: "Mise en ligne en production, transfert intégral du code source et 30 jours de garantie inclus.",
     },
   ];
 
@@ -59,64 +51,54 @@ export function ProcessSteps() {
     <section id="process" className="w-full px-4 py-20 sm:px-6 lg:px-8 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <Badge variant="default" className="mb-3">
-            Méthode &amp; Transparence
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <Badge variant="default" className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold px-3 py-1 mb-2.5">
+            Méthode
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
-            Comment Nous Collaborons
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
+            Processus &amp; Collaboration
           </h2>
-          <p className="mt-3 text-base text-stone-600 dark:text-stone-300">
-            Un processus structuré et sans surprise, conçu pour vous livrer un produit digital irréprochable dans les délais impartis.
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+            4 étapes directes, du premier cadrage à la mise en ligne sereine de votre solution.
           </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 rounded-3xl bg-white/95 dark:bg-[#171412]/95 border border-stone-200/90 dark:border-amber-500/15 flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-amber-500/40 dark:hover:border-amber-500/40 transition-all duration-300 group"
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="p-5 rounded-2xl bg-white/95 dark:bg-[#171412]/95 border border-stone-200/90 dark:border-amber-500/15 flex flex-col justify-between shadow-xs hover:shadow-lg hover:border-amber-500/35 transition-all duration-300 group"
               >
                 <div>
                   {/* Top Bar: Number & Timing */}
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="font-mono text-2xl font-black text-amber-500/40 dark:text-amber-500/30 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xl font-bold text-amber-500/60 dark:text-amber-500/50 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       {step.number}
                     </span>
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-stone-700/60">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-850 text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-stone-750">
                       {step.timing}
                     </span>
                   </div>
 
                   {/* Icon & Title */}
-                  <div className={`p-3 rounded-2xl border inline-flex mb-4 ${step.color}`}>
-                    <Icon className="w-5 h-5" />
+                  <div className={`p-2.5 rounded-xl border inline-flex mb-3 ${step.color}`}>
+                    <Icon className="w-4 h-4" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
+                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
                     {step.title}
                   </h3>
 
-                  <p className="mt-2.5 text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                  <p className="mt-1.5 text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
                     {step.description}
                   </p>
-                </div>
-
-                {/* Bullets */}
-                <div className="mt-6 pt-4 border-t border-stone-100 dark:border-stone-800 space-y-2">
-                  {step.points.map((point, pIdx) => (
-                    <div key={pIdx} className="flex items-center gap-2 text-[11px] font-medium text-stone-700 dark:text-stone-300">
-                      <IconCheck className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span>{point}</span>
-                    </div>
-                  ))}
                 </div>
               </motion.div>
             );

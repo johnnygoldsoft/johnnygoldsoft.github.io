@@ -35,31 +35,31 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-stone-200/90 bg-[#FAF8F5]/90 backdrop-blur-md dark:border-stone-800 dark:bg-[#0C0A09]/90 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <footer className="w-full border-t border-stone-200/90 bg-[#FAF8F5]/90 backdrop-blur-md dark:border-stone-800 dark:bg-[#0C0A09]/90 pt-12 pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-10">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start justify-between">
           {/* Brand Col */}
-          <div className="md:col-span-5 space-y-3">
+          <div className="md:col-span-5 space-y-2.5">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 via-amber-400 to-yellow-500 text-stone-950 font-black text-xs shadow-sm shadow-amber-500/30">
+              <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 via-amber-400 to-yellow-500 text-stone-950 font-black text-xs shadow-xs">
                 JG
               </span>
-              <span className="font-extrabold text-lg text-stone-900 dark:text-stone-100">
+              <span className="font-extrabold text-base sm:text-lg text-stone-900 dark:text-stone-100">
                 Johnny Gold <span className="text-amber-600 dark:text-amber-400">Soft.</span>
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-stone-500 dark:text-stone-400 max-w-sm leading-relaxed">
-              Atelier digital d'exception fondé par Jean-Claude Sassou. Ingénierie mobile (Flutter), plateformes web de prestige (Next.js 15), architectures backend (Laravel) et identités visuelles.
+            <p className="text-xs text-stone-500 dark:text-stone-400 max-w-sm leading-relaxed">
+              Ingénierie logicielle mobile &amp; web de précision (Flutter, Next.js, Laravel). Conçu pour la performance et l'impact réel.
             </p>
           </div>
 
           {/* Quick Nav Links */}
           <div className="md:col-span-4 flex flex-col space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 mb-1">
-              Navigation Rapide
+            <span className="text-[11px] font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 mb-0.5">
+              Navigation
             </span>
-            <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm text-stone-600 dark:text-stone-400">
+            <div className="grid grid-cols-2 gap-2 text-xs text-stone-600 dark:text-stone-400">
               <a href="#top" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                 Accueil
               </a>
@@ -67,13 +67,13 @@ export default function Footer() {
                 Réalisations
               </a>
               <a href="#services" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
-                Services
+                Solutions
               </a>
               <a href="#process" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                 Méthode
               </a>
               <a href="#estimator" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
-                Configurateur
+                Simulateur
               </a>
               <a href="#faq" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                 FAQ
@@ -88,29 +88,29 @@ export default function Footer() {
           </div>
 
           {/* Local Time & System Status */}
-          <div className="md:col-span-3 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 mb-1 block">
-              Disponibilité &amp; Fuseau
+          <div className="md:col-span-3 space-y-2.5">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 mb-0.5 block">
+              Fuseau Horaire
             </span>
-            <div className="p-3.5 rounded-2xl bg-stone-100 dark:bg-[#171412] border border-stone-200/80 dark:border-amber-500/15 space-y-2">
+            <div className="p-3 rounded-xl bg-stone-100 dark:bg-[#171412] border border-stone-200/80 dark:border-amber-500/15 space-y-1.5">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-stone-500">Heure Locale (Lomé)</span>
-                <span className="font-mono font-bold text-stone-800 dark:text-stone-200">
+                <span className="text-stone-500 text-[11px]">Heure Locale (Lomé)</span>
+                <span className="font-mono font-bold text-xs text-stone-800 dark:text-stone-200">
                   {localTime || "12:00:00"} GMT
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 pt-1 border-t border-stone-200/60 dark:border-stone-800">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Disponible pour projets d'exception</span>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 pt-1 border-t border-stone-200/60 dark:border-stone-800">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Disponible pour nouvelles missions</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-stone-200/80 dark:border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-stone-500 dark:text-stone-400 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Johnny Gold Soft (Jean-Claude Sassou). Conçu &amp; développé avec Next.js 15, Tailwind CSS &amp; Framer Motion.
+        <div className="pt-6 border-t border-stone-200/80 dark:border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[11px] text-stone-500 dark:text-stone-400 text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Johnny Gold Soft. Tous droits réservés.
           </p>
 
           <div className="flex items-center gap-4">

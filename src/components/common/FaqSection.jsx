@@ -12,69 +12,69 @@ export function FaqSection() {
     {
       question: "Quels sont vos délais habituels de livraison ?",
       answer:
-        "Tout dépend de l'envergure du projet. Un site vitrine ou un design UI/UX prend généralement 1 à 3 semaines. Une application mobile complète (Flutter) ou une plateforme SaaS (Next.js/Laravel) nécessite entre 3 et 8 semaines. Dès la phase de devis, nous fixons un rétroplanning précis et engageant.",
+        "Entre 1 et 3 semaines pour un design UI/UX ou un site vitrine, et 3 à 8 semaines pour une application mobile (Flutter) ou SaaS (Next.js/Laravel). Le calendrier précis est fixé dès le devis initial.",
     },
     {
       question: "Comment se déroule la collaboration à distance avec l'international ?",
       answer:
-        "Basé à Lomé (Togo, fuseau GMT / UTC+0), je suis parfaitement synchronisé avec les horaires d'Europe, d'Afrique et des Amériques. Nous communiquons par WhatsApp, Google Meet, Slack ou email avec des points d'avancement hebdomadaires et des démos interactives en direct.",
+        "Basé à Lomé (GMT / UTC+0), je suis parfaitement aligné avec l'Europe, l'Afrique et les Amériques. Échanges continus via WhatsApp, Google Meet ou Slack avec démos intermédiaires régulières.",
     },
     {
       question: "Qui est propriétaire du code source et des créations ?",
       answer:
-        "Vous êtes propriétaire à 100% du code source, des maquettes Figma, des assets graphiques et des bases de données dès le règlement final. Il n'y a aucun système de verrouillage propriétaire ('vendor lock-in'). Tout vous est intégralement transféré avec documentation d'exploitation.",
+        "Vous êtes propriétaire à 100% du code source, des maquettes Figma et des bases de données dès la livraison finale, sans aucun verrouillage propriétaire.",
     },
     {
       question: "Assurez-vous un support après la mise en ligne ?",
       answer:
-        "Oui, absolument ! Chaque projet livré inclut automatiquement une période de garantie de 30 jours offerte (correction des bugs mineurs, ajustements et assistance technique). Au-delà, je propose des forfaits mensuels de maintenance préventive et d'évolution.",
+        "Oui. Chaque projet inclut automatiquement 30 jours de garantie et de support technique offerts pour corriger d'éventuels ajustements en toute sérénité.",
     },
     {
-      question: "Quelles sont les modalités et moyens de paiement acceptés ?",
+      question: "Quelles sont les modalités de paiement acceptées ?",
       answer:
-        "La règle standard est un acompte au démarrage (généralement 30% à 40%), des paiements par jalons validés, et le solde à la livraison finale. Les règlements s'effectuent par virement bancaire international, Wise, PayPal ou transfert d'argent sécurisé.",
+        "Acompte au démarrage (30-40%), paiements par jalons validés, et solde à la livraison finale. Règlements acceptés par virement bancaire, Wise, PayPal ou transfert sécurisé.",
     },
   ];
 
   return (
     <section id="faq" className="w-full px-4 py-20 sm:px-6 lg:px-8 scroll-mt-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-3xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <Badge variant="default" className="mb-3">
-            Questions Fréquentes
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <Badge variant="default" className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold px-3 py-1 mb-2.5">
+            FAQ
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Tout Ce Que Vous Devez Savoir
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
+            Questions Fréquentes
           </h2>
-          <p className="mt-3 text-base text-slate-600 dark:text-slate-300">
-            Des réponses claires et directes aux questions courantes avant de démarrer notre collaboration.
+          <p className="mt-2.5 text-xs sm:text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+            Réponses directes et sans détour aux questions récurrentes.
           </p>
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className="rounded-2xl border border-stone-200/90 bg-white/95 dark:border-amber-500/15 dark:bg-[#171412]/95 overflow-hidden transition-all duration-200 shadow-xs"
+                className="rounded-xl border border-stone-200/90 bg-white/95 dark:border-amber-500/15 dark:bg-[#171412]/95 overflow-hidden transition-all duration-200 shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                 >
-                  <span className="font-bold text-base sm:text-lg text-stone-900 dark:text-stone-100">
+                  <span className="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">
                     {faq.question}
                   </span>
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-amber-600 dark:text-amber-400 border-amber-500/30" : "text-stone-500"
+                    className={`h-7 w-7 rounded-full flex items-center justify-center shrink-0 border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 text-amber-600 dark:text-amber-400 border-amber-500/30" : "text-stone-400"
                     }`}
                   >
-                    <IconChevronDown className="w-4 h-4" />
+                    <IconChevronDown className="w-3.5 h-3.5" />
                   </div>
                 </button>
 
@@ -84,9 +84,9 @@ export function FaqSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.25 }}
                     >
-                      <div className="px-5 sm:px-6 pb-6 text-sm text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-4">
+                      <div className="px-4 sm:px-5 pb-5 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed border-t border-stone-100 dark:border-stone-800/80 pt-3">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -98,22 +98,22 @@ export function FaqSection() {
         </div>
 
         {/* Need more help banner */}
-        <div className="mt-10 p-6 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/25 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 p-5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/20 text-center flex flex-col sm:flex-row items-center justify-between gap-3.5">
           <div className="text-left">
-            <p className="text-sm font-bold text-stone-900 dark:text-stone-100">
-              Vous avez une question spécifique sur votre projet ?
+            <p className="text-xs sm:text-sm font-bold text-stone-900 dark:text-stone-100">
+              Une question spécifique à votre projet ?
             </p>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
-              Échangeons directement par message pour obtenir un retour immédiat.
+            <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-0.5">
+              Échange direct pour une réponse sous quelques heures.
             </p>
           </div>
           <a
             href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20j%27aimerais%20vous%20poser%20une%20question%20sur%20mon%20projet"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 transition-colors shrink-0 shadow-sm"
+            className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors shrink-0 shadow-xs"
           >
-            <span>Poser une question sur WhatsApp</span>
+            <span>WhatsApp direct</span>
           </a>
         </div>
       </div>

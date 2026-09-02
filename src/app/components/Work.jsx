@@ -32,20 +32,20 @@ export default function Work() {
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
         <SectionTitle
-          badge="Showcase Studio"
-          title="Réalisations & Études de Cas"
+          badge="Showcase"
+          title="Réalisations & Projets"
           description="Applications mobiles Flutter, plateformes web Next.js et maquettes UI/UX conçues pour des performances réelles."
         />
 
         {/* Category Tabs with Badges */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.label;
             return (
               <button
                 key={cat.label}
                 onClick={() => setSelectedCategory(cat.label)}
-                className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+                className={`relative px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                   isSelected
                     ? "text-stone-950"
                     : "text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100 bg-stone-100 dark:bg-stone-800/70 border border-stone-200/60 dark:border-stone-700/60"
@@ -54,15 +54,15 @@ export default function Work() {
                 {isSelected && (
                   <motion.div
                     layoutId="activeCategoryTabPill"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 shadow-md shadow-amber-500/25"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 shadow-sm shadow-amber-500/25"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10">{cat.label}</span>
                 <span
-                  className={`relative z-10 text-[11px] px-1.5 py-0.2 rounded-full ${
+                  className={`relative z-10 text-[10px] px-1.5 py-0.2 rounded-full ${
                     isSelected
-                      ? "bg-stone-950/15 text-stone-950"
+                      ? "bg-stone-950/15 text-stone-950 font-bold"
                       : "bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300"
                   }`}
                 >

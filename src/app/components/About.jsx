@@ -14,33 +14,33 @@ export default function About() {
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
         <SectionTitle
-          badge="À Propos de Moi"
-          title="Mon Parcours & Philosophie"
-          description="Découvrez qui je suis, ma vision du développement logiciel et les technologies qui façonnent mon travail au quotidien."
+          badge="Profil"
+          title="Parcours & Philosophie"
+          description="Ingénieur logiciel & designer, alliant rigueur technique et ergonomie centrée sur l'humain."
         />
 
         {/* Tab Switcher */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 backdrop-blur-md">
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex p-1 rounded-full bg-stone-100 dark:bg-stone-850 border border-stone-200/80 dark:border-stone-750 backdrop-blur-md">
             <button
               onClick={() => setActiveTab("overview")}
-              className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 activeTab === "overview"
-                  ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm"
-                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-white dark:bg-[#171412] text-amber-600 dark:text-amber-400 shadow-xs border border-stone-200/60 dark:border-amber-500/20"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
               }`}
             >
-              Vue d'Ensemble & Compétences
+              Vue d'Ensemble
             </button>
             <button
               onClick={() => setActiveTab("timeline")}
-              className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 activeTab === "timeline"
-                  ? "bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-sm"
-                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-white dark:bg-[#171412] text-amber-600 dark:text-amber-400 shadow-xs border border-stone-200/60 dark:border-amber-500/20"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
               }`}
             >
-              Expériences & Formation
+              Expériences & Diplômes
             </button>
           </div>
         </div>

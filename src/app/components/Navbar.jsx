@@ -230,7 +230,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               </div>
 
               {/* Drawer Footer Actions */}
-              <div className="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-3">
+              <div className="pt-6 border-t border-stone-200 dark:border-stone-800 space-y-3">
                 <a
                   href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous."
                   target="_blank"

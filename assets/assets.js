@@ -1,5 +1,6 @@
 import user_image from "./jean_professionnal.jpg";
 import profile_pic from "./jean_prof2.jpg";
+import jean_claude_sassou from "./jean_claude_sassou.png";
 import code_icon from "./code-icon.png";
 import code_icon_dark from "./code-icon-dark.png";
 import edu_icon from "./edu-icon.png";
@@ -67,6 +68,7 @@ export const assets = {
   front3,
 
   // autre
+  jean_claude_sassou,
   user_image,
   profile_img,
   profile_pic,

@@ -140,113 +140,120 @@ export default function Header() {
           </motion.div>
         </div>
 
-        {/* Right Column: Studio Passport Profile Card */}
+        {/* Right Column: Executive Hero Portrait Showcase */}
         <div className="lg:col-span-5 flex justify-center items-center relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, type: "spring" }}
-            className="w-full max-w-sm"
+            className="w-full max-w-sm sm:max-w-md relative"
           >
-            <SpotlightCard className="p-5 sm:p-6 rounded-3xl border border-stone-200/90 dark:border-amber-500/20 bg-white/95 dark:bg-[#171412]/95 shadow-lg space-y-4">
-              {/* Profile Top Row */}
-              <div className="flex items-center gap-3.5">
-                <div className="relative h-16 w-16 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-sm shrink-0">
-                  <Image
-                    src={assets.user_image}
-                    alt="Jean-Claude Sassou"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+            {/* Ambient Gold Halo */}
+            <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-b from-amber-500/25 via-yellow-500/10 to-transparent blur-xl opacity-75 pointer-events-none" />
+
+            <div className="relative rounded-3xl overflow-hidden border border-stone-200/90 dark:border-amber-500/25 bg-white/95 dark:bg-[#171412]/95 shadow-xl">
+              {/* Photo Showcase Container */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-900">
+                <Image
+                  src={assets.jean_claude_sassou}
+                  alt="Jean-Claude Sassou"
+                  fill
+                  priority
+                  className="object-cover object-top hover:scale-102 transition-transform duration-700 ease-out"
+                />
+
+                {/* Subtle Gradient vignette at bottom for seamless contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent opacity-95" />
+
+                {/* Floating Availability Pill */}
+                <div className="absolute top-3.5 left-3.5 z-10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-stone-950/80 text-emerald-300 border border-emerald-500/30 backdrop-blur-md shadow-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Disponible • Projets &amp; CDI</span>
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
-                    Jean-Claude Sassou
-                  </h3>
-                  <p className="text-xs font-semibold text-amber-600 dark:text-amber-400">
-                    Johnny Gold • Atelier Digital
-                  </p>
-                  <div className="flex items-center gap-1 mt-1 text-[11px] text-stone-500 dark:text-stone-400">
-                    <IconMapPin className="w-3 h-3 text-stone-400 shrink-0" />
-                    <span>Lomé, Togo (GMT+0) • Ouvert Monde</span>
+
+                {/* Overlay Profile Info on photo */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 z-10 text-white space-y-2.5">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                      Jean-Claude Sassou
+                    </h3>
+                    <p className="text-xs font-semibold text-amber-400">
+                      Johnny Gold • Ingénieur Logiciel &amp; UI/UX
+                    </p>
+                    <div className="flex items-center gap-1 mt-0.5 text-[11px] text-stone-300">
+                      <IconMapPin className="w-3 h-3 text-amber-400 shrink-0" />
+                      <span>Lomé, Togo (GMT+0) • Remote International</span>
+                    </div>
+                  </div>
+
+                  {/* Compact Tech Stack Pills */}
+                  <div className="flex flex-wrap gap-1">
+                    {["Flutter 3", "Next.js 15", "React 19", "Laravel", "Figma"].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 rounded-md bg-stone-900/80 text-[10px] font-semibold text-stone-200 border border-white/10 backdrop-blur-md"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Quick Action Channels */}
+                  <div className="pt-1.5 flex items-center gap-1.5">
+                    <a
+                      href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20d%C3%A9sire%20discuter%20d%27un%20projet%20avec%20vous."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-1.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                    >
+                      <IconWhatsapp className="w-3.5 h-3.5" />
+                      <span>WhatsApp</span>
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      className="py-1.5 px-2.5 rounded-xl border border-white/20 bg-stone-900/80 hover:bg-stone-800 text-stone-200 text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer backdrop-blur-md shrink-0"
+                    >
+                      {copiedEmail ? (
+                        <>
+                          <IconCheck className="w-3 h-3 text-emerald-400" />
+                          <span className="text-emerald-400 font-bold text-[11px]">Copié</span>
+                        </>
+                      ) : (
+                        <>
+                          <IconCopy className="w-3 h-3" />
+                          <span className="text-[11px]">Email</span>
+                        </>
+                      )}
+                    </button>
+
+                    <div className="flex items-center gap-1">
+                      <a
+                        href="https://github.com/johnnygoldsoft"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        className="p-1.5 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400 transition-colors"
+                      >
+                        <IconGithub className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/jean-claude-sassou/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        className="p-1.5 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400 transition-colors"
+                      >
+                        <IconLinkedin className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Tech Mastery Chips */}
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-stone-400 block mb-2">
-                  Stack Fondamentale
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {["Flutter 3", "Next.js 15", "React 19", "Laravel", "Figma"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-850 text-[11px] font-semibold text-stone-700 dark:text-stone-300 border border-stone-200/60 dark:border-stone-700/60"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Channels */}
-              <div className="pt-3 border-t border-stone-100 dark:border-stone-800 space-y-2">
-                {/* Direct WhatsApp Button */}
-                <a
-                  href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20d%C3%A9sire%20discuter%20d%27un%20projet%20avec%20vous."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
-                >
-                  <IconWhatsapp className="w-3.5 h-3.5" />
-                  <span>Discussion directe sur WhatsApp</span>
-                </a>
-
-                {/* 1-Click Copy Email & Socials */}
-                <div className="flex items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="flex-1 py-1.5 px-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-850 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    {copiedEmail ? (
-                      <>
-                        <IconCheck className="w-3 h-3 text-emerald-500" />
-                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">Copié !</span>
-                      </>
-                    ) : (
-                      <>
-                        <IconCopy className="w-3 h-3" />
-                        <span>Copier Email</span>
-                      </>
-                    )}
-                  </button>
-
-                  <div className="flex items-center gap-1">
-                    <a
-                      href="https://github.com/johnnygoldsoft"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                      className="p-1.5 rounded-lg border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-amber-500 transition-colors"
-                    >
-                      <IconGithub className="w-3.5 h-3.5" />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/jean-claude-sassou/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      className="p-1.5 rounded-lg border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-amber-500 transition-colors"
-                    >
-                      <IconLinkedin className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </SpotlightCard>
+            </div>
           </motion.div>
         </div>
       </div>

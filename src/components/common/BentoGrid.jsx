@@ -65,10 +65,10 @@ export function BentoGrid() {
           <div className="flex flex-col sm:flex-row gap-5 items-start">
             <div className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-sm">
               <Image
-                src={assets.user_image}
+                src={assets.jean_claude_sassou}
                 alt="Jean-Claude Sassou"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div>

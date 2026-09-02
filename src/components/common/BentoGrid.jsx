@@ -28,7 +28,7 @@ export function BentoGrid() {
       desc: "Applications Android & iOS avec architecture réactive et intégrations cloud.",
       skills: ["Flutter 3.x", "Dart", "Firebase", "State Management (Bloc/Provider)", "REST APIs"],
       icon: IconSmartphone,
-      color: "text-cyan-500",
+      color: "text-blue-600 dark:text-blue-400",
     },
     {
       category: "web",
@@ -36,7 +36,7 @@ export function BentoGrid() {
       desc: "Interfaces ultra-réactives, optimisées SEO avec SSR/SSG et micro-animations.",
       skills: ["Next.js 15", "React 19", "Tailwind CSS v4", "JavaScript ES6+", "Framer Motion"],
       icon: IconCode,
-      color: "text-blue-500",
+      color: "text-sky-600 dark:text-sky-400",
     },
     {
       category: "backend",
@@ -44,7 +44,7 @@ export function BentoGrid() {
       desc: "Architectures serveur sécurisées, gestion de bases de données et webhooks.",
       skills: ["Laravel", "PHP 8+", "Node.js", "MySQL", "MongoDB", "Auth JWT"],
       icon: IconServer,
-      color: "text-purple-500",
+      color: "text-purple-600 dark:text-purple-400",
     },
     {
       category: "design",
@@ -52,7 +52,7 @@ export function BentoGrid() {
       desc: "Affiches, flyers, stickers, impressions sur tous supports, UI/UX et réseaux.",
       skills: ["Affiches, Flyers & Stickers", "Impression sur tous supports", "UI/UX Figma", "Câblage & Réseaux Wi-Fi"],
       icon: IconPalette,
-      color: "text-pink-500",
+      color: "text-amber-600 dark:text-amber-400",
     },
   ];
 
@@ -61,9 +61,9 @@ export function BentoGrid() {
       {/* Top 3-Col Bento Row */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         {/* Large Profile & Vision Card (8 cols) */}
-        <SpotlightCard className="md:col-span-7 lg:col-span-8 flex flex-col justify-between overflow-hidden">
+        <SpotlightCard className="md:col-span-7 lg:col-span-8 flex flex-col justify-between overflow-hidden p-6 sm:p-7">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-lg shadow-cyan-500/10">
+            <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-md">
               <Image
                 src={assets.user_image}
                 alt="Jean-Claude Sassou"
@@ -87,31 +87,31 @@ export function BentoGrid() {
 
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-4 items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <div className="flex items-center gap-2">
-              <IconSparkles className="w-4 h-4 text-cyan-500" />
+              <IconSparkles className="w-4 h-4 text-blue-500" />
               <span>Expertises : React, Next.js, Flutter, Laravel</span>
             </div>
-            <div className="font-semibold text-blue-600 dark:text-cyan-400">
+            <div className="font-semibold text-blue-600 dark:text-blue-400">
               100% Ouvert au travail international
             </div>
           </div>
         </SpotlightCard>
 
         {/* Location & Timezone Card (4 cols) */}
-        <SpotlightCard className="md:col-span-5 lg:col-span-4 flex flex-col justify-between">
+        <SpotlightCard className="md:col-span-5 lg:col-span-4 flex flex-col justify-between p-6 sm:p-7">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                 Disponibilité & Fuseau
               </span>
               <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-cyan-400">
+                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400">
                   <IconMapPin className="w-4 h-4" />
                 </div>
                 <div>

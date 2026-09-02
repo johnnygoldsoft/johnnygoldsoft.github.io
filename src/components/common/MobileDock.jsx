@@ -10,6 +10,8 @@ import {
   IconSun,
   IconMoon,
   IconSparkles,
+  IconCalculator,
+  IconWhatsapp,
 } from "@/components/ui/Icons";
 
 export default function MobileDock({ isDarkMode, setIsDarkMode }) {
@@ -17,11 +19,11 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["top", "about", "services", "work", "contact"];
+      const sections = ["top", "work", "services", "estimator", "contact"];
       const scrollPosition = window.scrollY + 250;
 
       for (const section of sections) {
-        const el = document.getElementById(section === "top" ? "__next" : section);
+        const el = document.getElementById(section);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
@@ -38,15 +40,14 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
 
   const dockItems = [
     { id: "top", label: "Accueil", href: "#top", icon: IconSparkles },
-    { id: "about", label: "Profil", href: "#about", icon: IconCode },
-    { id: "services", label: "Services", href: "#services", icon: IconSmartphone },
     { id: "work", label: "Projets", href: "#work", icon: IconBriefcase },
+    { id: "estimator", label: "Devis", href: "#estimator", icon: IconCalculator },
     { id: "contact", label: "Contact", href: "#contact", icon: IconMail },
   ];
 
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-40 md:hidden flex justify-center px-4 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center gap-1.5 px-3 py-2 rounded-full cyber-glass shadow-2xl border border-slate-200/80 dark:border-white/10 backdrop-blur-xl">
+    <div className="fixed bottom-4 left-0 right-0 z-40 lg:hidden flex justify-center px-4 pointer-events-none">
+      <nav className="pointer-events-auto flex items-center gap-1.5 px-3 py-2 rounded-full glass-pill shadow-xl border border-slate-200/90 dark:border-white/10 dark:bg-slate-900/90 backdrop-blur-xl">
         {dockItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -56,7 +57,7 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
               href={item.href}
               className={`relative flex flex-col items-center justify-center p-2 rounded-full transition-all cursor-pointer ${
                 isActive
-                  ? "text-blue-600 dark:text-cyan-400"
+                  ? "text-blue-600 dark:text-blue-400"
                   : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
               }`}
               aria-label={item.label}
@@ -64,7 +65,7 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
               {isActive && (
                 <motion.div
                   layoutId="activeDockIndicator"
-                  className="absolute inset-0 rounded-full bg-blue-50 dark:bg-slate-800/80 shadow-xs"
+                  className="absolute inset-0 rounded-full bg-blue-50 dark:bg-slate-800/90 shadow-xs"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -73,7 +74,18 @@ export default function MobileDock({ isDarkMode, setIsDarkMode }) {
           );
         })}
 
-        <div className="w-[1px] h-5 bg-slate-200 dark:bg-slate-700 mx-1" />
+        {/* WhatsApp Fast Link in Dock */}
+        <a
+          href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20d%C3%A9sire%20%C3%A9changer%20sur%20mon%20projet."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="p-2 rounded-full text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 cursor-pointer"
+        >
+          <IconWhatsapp className="w-5 h-5" />
+        </a>
+
+        <div className="w-[1px] h-5 bg-slate-200 dark:bg-slate-700 mx-0.5" />
 
         {/* Theme Toggle in Dock */}
         <button

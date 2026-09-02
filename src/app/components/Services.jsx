@@ -13,90 +13,78 @@ import {
   IconWrench,
 } from "@/components/ui/Icons";
 
-export default function Services() {
+export default function Services({ onSelectService }) {
   const servicesList = [
     {
-      icon: IconCode,
-      iconColor: "from-blue-500/15 to-cyan-500/15 text-blue-600 dark:text-cyan-400 border-blue-500/20",
-      title: "Développement Web Moderne",
-      description:
-        "Conception de plateformes SaaS, portails d'entreprise et sites vitrines haute performance propulsés par Next.js 15, React 19 et Tailwind CSS v4.",
-      features: [
-        "Architecture Next.js 15 (SSR/SSG & App Router)",
-        "Design adaptatif mobile, tablette & desktop",
-        "Performance Core Web Vitals & référencement SEO",
-      ],
-    },
-    {
       icon: IconSmartphone,
-      iconColor: "from-cyan-500/15 to-sky-500/15 text-cyan-600 dark:text-cyan-300 border-cyan-500/20",
+      iconColor: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900/50",
       title: "Applications Mobiles (Flutter)",
       description:
         "Création d'applications mobiles cross-platform pour iOS et Android avec une expérience utilisateur fluide, réactive et connectée au cloud.",
       features: [
         "Codebase unique iOS & Android (Flutter 3.x)",
         "Intégration Firebase, push notifications & APIs REST",
-        "Architecture propre (Bloc / Provider) & offline first",
+        "Publication sur App Store & Google Play",
       ],
     },
     {
-      icon: IconBrush,
-      iconColor: "from-purple-500/15 to-violet-500/15 text-purple-600 dark:text-purple-400 border-purple-500/20",
-      title: "Graphisme & Impression sur Supports",
+      icon: IconCode,
+      iconColor: "text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-900/50",
+      title: "Développement Web & SaaS",
       description:
-        "Création visuelle percutante et production d'affiches, flyers publicitaires, autocollants, étiquettes de packaging et impressions personnalisées sur tous types de supports.",
+        "Conception de plateformes web réactives, portails d'entreprise et sites vitrines propulsés par Next.js 15, React 19 et Tailwind CSS v4.",
       features: [
-        "Affiches événementielles, posters & flyers promotionnels",
-        "Autocollants, stickers & étiquettes de produits",
-        "Impression sur tous supports (bâches, textiles, roll-ups, goodies)",
-      ],
-    },
-    {
-      icon: IconPalette,
-      iconColor: "from-pink-500/15 to-rose-500/15 text-pink-600 dark:text-pink-400 border-pink-500/20",
-      title: "UI/UX Design & Prototypage",
-      description:
-        "Conception d'interfaces centrées sur l'utilisateur, wireframes interactifs et design systems sous Figma pour maximiser l'engagement.",
-      features: [
-        "Prototypage interactif avancé sur Figma",
-        "Création de Design Systems & kits UI réutilisables",
-        "Recherche utilisateur & ergonomie de navigation",
+        "Architecture Next.js 15 App Router (SSR/SSG)",
+        "Design adaptatif mobile, tablette & grand écran",
+        "Performance Core Web Vitals & référencement SEO",
       ],
     },
     {
       icon: IconServer,
-      iconColor: "from-emerald-500/15 to-teal-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+      iconColor: "text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-900/50",
       title: "Architectures Backend & APIs",
       description:
-        "Développement de serveurs fiables, sécurisés et évolutifs en Laravel et Node.js avec bases de données relationnelles et NoSQL.",
+        "Développement d'APIs fiables, sécurisées et évolutives en Laravel (PHP) et Node.js avec bases de données relationnelles et NoSQL.",
       features: [
-        "Frameworks Laravel (PHP 8+) & Node.js",
+        "Framework Laravel 12 & Node.js avec JWT/OAuth",
         "Bases MySQL, PostgreSQL, MongoDB & Redis",
-        "Authentification sécurisée JWT/OAuth & APIs RESTful",
+        "Documentation Swagger/Postman & webhooks",
+      ],
+    },
+    {
+      icon: IconPalette,
+      iconColor: "text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/50 border-pink-200 dark:border-pink-900/50",
+      title: "UI/UX Design & Prototypage",
+      description:
+        "Conception d'interfaces centrées sur l'utilisateur, wireframes interactifs et design systems complets sous Figma avant intégration.",
+      features: [
+        "Prototypage interactif haute fidélité sur Figma",
+        "Design Systems & kits UI cohérents",
+        "Optimisation des taux de conversion UX",
+      ],
+    },
+    {
+      icon: IconBrush,
+      iconColor: "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-900/50",
+      title: "Graphisme & Impression Tout Support",
+      description:
+        "Création visuelle percutante et production d'affiches, flyers, autocollants, étiquettes packaging et supports grand format.",
+      features: [
+        "Affiches événementielles, flyers & roll-ups",
+        "Stickers, autocollants & étiquettes produits",
+        "Fichiers haute définition prêts pour l'impression (CMJN 300dpi)",
       ],
     },
     {
       icon: IconNetwork,
-      iconColor: "from-amber-500/15 to-orange-500/15 text-amber-600 dark:text-amber-400 border-amber-500/20",
+      iconColor: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-900/50",
       title: "Installation Réseau & Systèmes",
       description:
-        "Déploiement d'infrastructures réseaux d'entreprise, configuration de serveurs Linux/Windows, routeurs, switchs et liaisons sécurisées.",
+        "Déploiement d'infrastructures réseaux d'entreprise, configuration de serveurs Linux/Windows, routeurs, switchs managés et sécurité.",
       features: [
-        "Câblage réseau, baie de brassage & Wi-Fi d'entreprise",
-        "Configuration routeurs, switchs managés & VPN",
-        "Administration de serveurs Linux (Ubuntu, Debian)",
-      ],
-    },
-    {
-      icon: IconWrench,
-      iconColor: "from-blue-600/15 to-indigo-600/15 text-blue-600 dark:text-blue-400 border-blue-600/20",
-      title: "Maintenance & Infogérance",
-      description:
-        "Support technique continu, audits de performance, résolution de bugs, sauvegardes automatiques et sécurisation de vos outils digitaux.",
-      features: [
-        "Audit technique de code & de sécurité",
-        "Mises à jour régulières & surveillance préventive",
-        "Dépannage réactif & assistance informatique",
+        "Câblage réseau, baie de brassage & Wi-Fi pro",
+        "Configuration switchs managés, routeurs & VPN",
+        "Maintenance préventive & assistance informatique",
       ],
     },
   ];
@@ -109,9 +97,9 @@ export default function Services() {
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
         <SectionTitle
-          badge="Expertises & Offres"
-          title="Mes Solutions & Prestations"
-          description="Des solutions complètes et sur mesure pour concrétiser vos ambitions digitales : du développement logiciel à l'infrastructure réseau et au design visuel."
+          badge="Expertises & Solutions"
+          title="Mes Solutions Clé en Main"
+          description="Des prestations complètes et sur mesure pour concrétiser vos ambitions digitales : du développement logiciel à l'infrastructure réseau et au design visuel."
         />
 
         {/* Services Grid */}
@@ -125,6 +113,7 @@ export default function Services() {
               description={service.description}
               features={service.features}
               index={index}
+              onSelectService={onSelectService}
             />
           ))}
         </div>

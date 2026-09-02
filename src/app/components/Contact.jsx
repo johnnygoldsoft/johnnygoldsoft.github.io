@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { Button } from "@/components/ui/Button";
@@ -15,9 +15,11 @@ import {
   IconArrowRight,
   IconGithub,
   IconLinkedin,
+  IconWhatsapp,
+  IconShield,
 } from "@/components/ui/Icons";
 
-export default function Contact() {
+export default function Contact({ prefilledData }) {
   const [result, setResult] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,13 +27,13 @@ export default function Contact() {
 
   const projectTypes = [
     "Application Mobile (Flutter)",
-    "Plateforme Web (Next.js/React)",
-    "Affiches, Flyers & Impression",
-    "Installation Réseau & Systèmes",
-    "Design UI/UX (Figma)",
+    "Plateforme Web / SaaS (Next.js)",
+    "UI/UX Design (Figma)",
     "Backend & APIs (Laravel/Node)",
-    "Maintenance & Support",
-    "Recrutement / CDI",
+    "Graphisme & Impression Tout Support",
+    "Installation Réseau & Systèmes",
+    "Maintenance & Support Technique",
+    "Recrutement / Opportunité CDI",
   ];
 
   const [selectedType, setSelectedType] = useState(projectTypes[0]);
@@ -40,6 +42,25 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
+  // Watch for prefilled data from the Project Estimator
+  useEffect(() => {
+    if (prefilledData) {
+      if (prefilledData.type) {
+        // match type or set
+        const matched = projectTypes.find((t) =>
+          t.toLowerCase().includes(prefilledData.type.toLowerCase().slice(0, 5))
+        );
+        if (matched) setSelectedType(matched);
+      }
+      if (prefilledData.message) {
+        setFormData((prev) => ({
+          ...prev,
+          message: prefilledData.message,
+        }));
+      }
+    }
+  }, [prefilledData]);
 
   const emailAddress = "johnnygoldsoft@gmail.com";
 
@@ -56,12 +77,12 @@ export default function Contact() {
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setResult("Transmission sécurisée en cours...");
+    setResult("Envoi sécurisé en cours...");
     setIsSuccess(false);
 
     const payload = {
       ...formData,
-      subject: `[Contact Studio] ${selectedType}`,
+      subject: `[Demande Projet] ${selectedType} - ${formData.name}`,
       project_type: selectedType,
       access_key: "4546d7f8-1d19-4129-9bbb-5206edf0b7d3",
     };
@@ -80,15 +101,15 @@ export default function Contact() {
 
       if (data.success) {
         setIsSuccess(true);
-        setResult("Message transmis avec succès ! Je vous répondrai sous 24h.");
+        setResult("Message transmis avec succès ! Je vous répondrai personnellement sous 24h.");
         setFormData({ name: "", email: "", message: "" });
       } else {
         setIsSuccess(false);
-        setResult("Une erreur est survenue lors de l'envoi. Écrivez-moi directement par email.");
+        setResult("Une erreur est survenue lors de l'envoi. Contactez-moi directement sur WhatsApp ou par email.");
       }
     } catch (error) {
       setIsSuccess(false);
-      setResult("Erreur réseau. Veuillez réessayer ou m'envoyer un email directement.");
+      setResult("Erreur de connexion. Veuillez réessayer ou m'envoyer un email directement.");
     } finally {
       setIsLoading(false);
     }
@@ -102,37 +123,59 @@ export default function Contact() {
       <div className="mx-auto max-w-6xl">
         {/* Section Header */}
         <SectionTitle
-          badge="Mission Control"
-          title="Démarrons Votre Prochaine Aventure"
-          description="Un projet d'application, une idée novatrice ou une opportunité d'embauche ? Échangeons dès aujourd'hui !"
+          badge="Contact & Démarrage"
+          title="Donnons Vie à Votre Projet"
+          description="Une idée d'application, un besoin de refonte ou une opportunité de collaboration ? Échangeons dès aujourd'hui."
         />
 
         {/* 2-Column Responsive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Direct Info Hub */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Direct Fast Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <SpotlightCard className="p-6 sm:p-8 space-y-6">
+            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 shadow-sm space-y-6">
               <div>
                 <Badge variant="default">Disponibilité Immédiate</Badge>
-                <h3 className="mt-3 text-2xl font-bold text-slate-900 dark:text-white">
-                  Échangeons directement
+                <h3 className="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white">
+                  Échangeons Directement
                 </h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Je réponds personnellement à chaque message pour évaluer la faisabilité et le calendrier de vos projets.
+                  Je réponds personnellement sous 24 heures pour évaluer la faisabilité, le calendrier et le chiffrage de votre projet.
                 </p>
               </div>
 
+              {/* Instant WhatsApp Card */}
+              <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-300">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Canal le plus rapide</span>
+                  </div>
+                  <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                    Réponse immédiate
+                  </span>
+                </div>
+                <a
+                  href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous%20sur%20mon%20projet."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
+                >
+                  <IconWhatsapp className="w-4 h-4" />
+                  <span>Démarrer une discussion sur WhatsApp</span>
+                </a>
+              </div>
+
               {/* 1-Click Copy Email Box */}
-              <div className="p-4 rounded-2xl bg-cyan-50/60 dark:bg-cyan-950/20 border border-cyan-200/80 dark:border-cyan-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="p-4 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-200/80 dark:border-blue-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-xs">
+                  <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-xs">
                     <IconMail className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       Email professionnel
                     </p>
-                    <p className="text-sm font-bold text-slate-900 dark:text-white break-all">
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white break-all">
                       {emailAddress}
                     </p>
                   </div>
@@ -141,7 +184,7 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="px-3.5 py-1.5 rounded-xl border border-cyan-300 dark:border-cyan-700 bg-white dark:bg-slate-800 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-slate-700 flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs shrink-0"
+                  className="px-3.5 py-1.5 rounded-xl border border-blue-300 dark:border-blue-700 bg-white dark:bg-slate-800 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs shrink-0"
                 >
                   {copiedEmail ? (
                     <>
@@ -157,15 +200,19 @@ export default function Contact() {
                 </button>
               </div>
 
-              {/* Stats & Response Guarantee */}
-              <div className="space-y-3 pt-2 text-sm text-slate-600 dark:text-slate-300">
+              {/* Details & Timezone */}
+              <div className="space-y-3 pt-1 text-xs text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-3">
-                  <IconMapPin className="w-4 h-4 text-cyan-500 shrink-0" />
-                  <span>Basé à Lomé, Togo (GMT / UTC+0)</span>
+                  <IconMapPin className="w-4 h-4 text-blue-500 shrink-0" />
+                  <span>Basé à Lomé, Togo (GMT / UTC+0) • Ouvert international</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <IconClock className="w-4 h-4 text-purple-500 shrink-0" />
                   <span>Délai moyen de réponse : <strong>Moins de 24 heures</strong></span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <IconShield className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span>Devis gratuit, clair et sans engagement</span>
                 </div>
               </div>
 
@@ -184,7 +231,7 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/jean-claude-sassou/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-blue-400 dark:hover:border-cyan-500 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold hover:border-blue-400 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <IconLinkedin className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -193,9 +240,9 @@ export default function Contact() {
             </SpotlightCard>
           </div>
 
-          {/* Right Column: Mission Control Interactive Form */}
+          {/* Right Column: High-Conversion Form */}
           <div className="lg:col-span-7">
-            <SpotlightCard className="p-6 sm:p-8">
+            <SpotlightCard className="p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 shadow-sm">
               <form onSubmit={onSubmit} className="space-y-6">
                 {/* Project Type Selector Chips */}
                 <div>
@@ -208,9 +255,9 @@ export default function Contact() {
                         key={type}
                         type="button"
                         onClick={() => setSelectedType(type)}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                           selectedType === type
-                            ? "bg-blue-600 dark:bg-cyan-500 text-white dark:text-slate-950 shadow-sm"
+                            ? "bg-blue-600 text-white shadow-xs"
                             : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                         }`}
                       >
@@ -227,7 +274,7 @@ export default function Contact() {
                       htmlFor="name"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Votre Nom <span className="text-rose-500">*</span>
+                      Votre Nom &amp; Prénom <span className="text-rose-500">*</span>
                     </label>
                     <input
                       id="name"
@@ -236,8 +283,8 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Ex: Jean Dupont"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-cyan-500 focus:bg-white focus:ring-2 focus:ring-cyan-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-cyan-400 dark:focus:bg-slate-800 dark:focus:ring-cyan-900/40"
+                      placeholder="Ex: Alexandre Martin"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
                     />
                   </div>
 
@@ -246,7 +293,7 @@ export default function Contact() {
                       htmlFor="email"
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Votre Email <span className="text-rose-500">*</span>
+                      Votre Email Professionnel <span className="text-rose-500">*</span>
                     </label>
                     <input
                       id="email"
@@ -255,8 +302,8 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Ex: jean@entreprise.com"
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-cyan-500 focus:bg-white focus:ring-2 focus:ring-cyan-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-cyan-400 dark:focus:bg-slate-800 dark:focus:ring-cyan-900/40"
+                      placeholder="Ex: alexandre@entreprise.com"
+                      className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
                     />
                   </div>
                 </div>
@@ -267,7 +314,7 @@ export default function Contact() {
                     htmlFor="message"
                     className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Votre Message <span className="text-rose-500">*</span>
+                    Description de votre besoin <span className="text-rose-500">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -276,8 +323,8 @@ export default function Contact() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Présentez brièvement vos besoins, votre calendrier ou vos objectifs..."
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-cyan-500 focus:bg-white focus:ring-2 focus:ring-cyan-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-cyan-400 dark:focus:bg-slate-800 dark:focus:ring-cyan-900/40"
+                    placeholder="Décrivez votre idée, les fonctionnalités clés souhaitées ou votre calendrier..."
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 transition-all focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:border-blue-400 dark:focus:bg-slate-800 dark:focus:ring-blue-900/40"
                   />
                 </div>
 
@@ -289,9 +336,9 @@ export default function Contact() {
                     variant="default"
                     isLoading={isLoading}
                     disabled={isLoading}
-                    className="w-full sm:w-auto shadow-lg shadow-cyan-500/20"
+                    className="w-full sm:w-auto shadow-lg shadow-blue-600/20 font-bold"
                   >
-                    <span>Envoyer la demande</span>
+                    <span>Envoyer ma demande de devis</span>
                     <IconArrowRight className="w-4 h-4" />
                   </Button>
 

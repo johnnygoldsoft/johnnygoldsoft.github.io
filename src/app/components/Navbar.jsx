@@ -2,7 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconSun, IconMoon, IconMenu, IconX, IconArrowRight, IconSparkles } from "@/components/ui/Icons";
+import {
+  IconSun,
+  IconMoon,
+  IconMenu,
+  IconX,
+  IconArrowRight,
+  IconWhatsapp,
+} from "@/components/ui/Icons";
 import { Button } from "@/components/ui/Button";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
@@ -13,20 +20,18 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
 
   const navLinks = [
     { label: "Accueil", href: "#top", id: "top" },
-    { label: "À Propos", href: "#about", id: "about" },
-    { label: "Services", href: "#services", id: "services" },
     { label: "Projets", href: "#work", id: "work" },
+    { label: "Services", href: "#services", id: "services" },
+    { label: "Méthode", href: "#process", id: "process" },
+    { label: "Simulateur", href: "#estimator", id: "estimator" },
+    { label: "FAQ", href: "#faq", id: "faq" },
     { label: "Contact", href: "#contact", id: "contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       // 1. Scroll elevation
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
 
       // 2. Reading progress bar
       const totalScroll = document.documentElement.scrollTop;
@@ -38,11 +43,11 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
       }
 
       // 3. Active Section Detection
-      const sections = ["top", "about", "services", "work", "contact"];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ["top", "work", "services", "process", "estimator", "faq", "contact"];
+      const scrollPosition = window.scrollY + 220;
 
       for (const section of sections) {
-        const el = document.getElementById(section === "top" ? "__next" : section);
+        const el = document.getElementById(section);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
@@ -61,48 +66,48 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
     <>
       {/* Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 z-50 transition-all duration-100 origin-left"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-blue-600 z-50 transition-all duration-100 origin-left"
         style={{ width: `${scrollProgress}%` }}
       />
 
       {/* Floating Island Navbar */}
       <header className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-3 sm:pt-4 pointer-events-none">
         <nav
-          className={`pointer-events-auto w-full max-w-5xl rounded-full px-5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 ${
+          className={`pointer-events-auto w-full max-w-5xl rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 ${
             isScrolled
-              ? "glass shadow-lg shadow-black/5 dark:shadow-black/20 border border-slate-200/80 dark:border-white/10"
-              : "bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-white/40 dark:border-white/5"
+              ? "glass-pill shadow-md border border-slate-200/90 dark:border-white/10 dark:bg-slate-900/90"
+              : "bg-white/70 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/60 dark:border-white/5"
           }`}
         >
           {/* Logo Brand */}
           <a
             href="#top"
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 text-white font-black text-sm shadow-sm group-hover:scale-105 transition-transform">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white font-black text-sm shadow-xs group-hover:scale-105 transition-transform">
               JC
             </span>
             <div className="flex flex-col">
               <span className="font-extrabold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white leading-tight">
-                Jean-Claude<span className="text-blue-500">.</span>
+                Jean-Claude<span className="text-blue-600">.</span>
               </span>
-              <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400 -mt-0.5">
-                Full-Stack Dev
+              <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 -mt-0.5">
+                Ingénieur Logiciel
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Items */}
-          <ul className="hidden md:flex items-center gap-1 bg-slate-100/60 dark:bg-slate-800/60 p-1 rounded-full border border-slate-200/60 dark:border-slate-700/50 backdrop-blur-md">
+          <ul className="hidden lg:flex items-center gap-0.5 bg-slate-100/70 dark:bg-slate-800/70 p-1 rounded-full border border-slate-200/60 dark:border-slate-700/50 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <li key={link.id}>
                   <a
                     href={link.href}
-                    className={`relative px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                    className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
                       isActive
-                        ? "text-blue-600 dark:text-white"
+                        ? "text-blue-600 dark:text-white font-bold"
                         : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
                     }`}
                   >
@@ -120,8 +125,8 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             })}
           </ul>
 
-          {/* Actions: Theme Toggle & Quick CTA */}
-          <div className="flex items-center gap-2.5">
+          {/* Actions: Theme Toggle & Primary CTA */}
+          <div className="flex items-center gap-2">
             {/* Theme Toggle Button */}
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
@@ -135,10 +140,10 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               )}
             </button>
 
-            {/* CTA Contact Button */}
-            <a href="#contact" className="hidden sm:inline-flex">
-              <Button size="sm" variant="default" className="text-xs">
-                <span>Discuter</span>
+            {/* CTA Devis Button */}
+            <a href="#estimator" className="hidden sm:inline-flex">
+              <Button size="sm" variant="default" className="text-xs font-bold shadow-xs">
+                <span>Demander un devis</span>
                 <IconArrowRight className="w-3.5 h-3.5" />
               </Button>
             </a>
@@ -146,7 +151,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/80 bg-white/80 text-slate-700 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-200 cursor-pointer shadow-xs"
+              className="lg:hidden flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/80 bg-white/80 text-slate-700 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-200 cursor-pointer shadow-xs"
               aria-label="Ouvrir le menu"
             >
               {isMobileMenuOpen ? (
@@ -162,7 +167,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
       {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-50 md:hidden flex justify-end">
+          <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -183,7 +188,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white font-bold text-xs">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-600 text-white font-bold text-xs">
                       JC
                     </span>
                     <span className="font-bold text-slate-900 dark:text-white text-sm">
@@ -199,20 +204,20 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
                 </div>
 
                 {/* Nav Links */}
-                <ul className="mt-8 space-y-3">
+                <ul className="mt-6 space-y-2">
                   {navLinks.map((link, idx) => (
                     <motion.li
                       key={link.id}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 }}
+                      transition={{ delay: idx * 0.04 }}
                     >
                       <a
                         href={link.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`flex items-center justify-between px-4 py-3 rounded-xl font-semibold text-base transition-colors ${
+                        className={`flex items-center justify-between px-4 py-2.5 rounded-xl font-semibold text-sm transition-colors ${
                           activeSection === link.id
-                            ? "bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400"
+                            ? "bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 font-bold"
                             : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
                         }`}
                       >
@@ -224,21 +229,28 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
                 </ul>
               </div>
 
-              {/* Drawer Footer CTA */}
+              {/* Drawer Footer Actions */}
               <div className="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-3">
                 <a
-                  href="#contact"
+                  href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-xs"
+                >
+                  <IconWhatsapp className="w-4 h-4" />
+                  <span>WhatsApp direct</span>
+                </a>
+
+                <a
+                  href="#estimator"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full"
                 >
-                  <Button variant="default" className="w-full">
-                    <span>Me contacter</span>
+                  <Button variant="default" className="w-full font-bold">
+                    <span>Estimer mon projet</span>
                     <IconArrowRight className="w-4 h-4" />
                   </Button>
                 </a>
-                <p className="text-center text-xs text-slate-400">
-                  Lomé, Togo • GMT/UTC+0
-                </p>
               </div>
             </motion.div>
           </div>

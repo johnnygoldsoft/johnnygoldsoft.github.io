@@ -6,27 +6,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "../../../assets/assets";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { LiveTerminal } from "@/components/common/LiveTerminal";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import {
   IconArrowRight,
   IconGithub,
   IconLinkedin,
   IconMail,
   IconSparkles,
-  IconCode,
   IconSmartphone,
+  IconCode,
   IconDownload,
+  IconCheck,
+  IconWhatsapp,
+  IconCopy,
+  IconMapPin,
+  IconClock,
 } from "@/components/ui/Icons";
 
 export default function Header() {
   const roles = [
     "Ingénieur d'Applications & Full-Stack",
-    "Développeur Mobile Flutter & Cross-Platform",
-    "Architecte Solutions Next.js & Laravel",
+    "Développeur Mobile Flutter & iOS/Android",
+    "Architecte Solutions Next.js 15 & Laravel",
     "Designer d'Expérience & Interfaces UI/UX",
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,147 +41,250 @@ export default function Header() {
     return () => clearInterval(interval);
   }, [roles.length]);
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("johnnygoldsoft@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
   return (
     <section
       id="top"
-      className="relative min-h-[92vh] sm:min-h-screen w-full flex items-center justify-center pt-24 sm:pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-[90vh] sm:min-h-screen w-full flex items-center justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-        {/* Left Column: Headline & Studio Introduction */}
+        {/* Left Column: Strategic Headline & Conversion CTA */}
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
           {/* Availability Status Badge */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-6"
+            className="mb-5"
           >
-            <Badge variant="glass" pulse={true} className="py-1.5 px-4 text-xs font-semibold">
-              <span className="text-slate-800 dark:text-slate-200">
-                Studio Ouvert • Disponible pour Missions & CDI
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold backdrop-blur-md shadow-xs">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-            </Badge>
+              <span>Disponible pour Projets Freelance &amp; Contrats CDI</span>
+            </div>
           </motion.div>
 
-          {/* Monumental Kinetic Headline */}
+          {/* Monumental High-Impact Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]"
           >
-            Créer des produits <br />
-            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent dark:from-cyan-400 dark:via-blue-400 dark:to-purple-400">
-              digitaux d'impact.
+            Concevoir des produits <br />
+            <span className="text-blue-600 dark:text-blue-400">
+              digitaux performants.
             </span>
           </motion.h1>
 
-          {/* Rotating Specialty Role */}
-          <div className="h-10 sm:h-12 mt-4 flex items-center overflow-hidden">
+          {/* Dynamic Roles */}
+          <div className="h-9 sm:h-10 mt-3 flex items-center overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentRoleIndex}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.35 }}
-                className="text-lg sm:text-xl md:text-2xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3 }}
+                className="text-base sm:text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"
               >
-                <IconSparkles className="w-5 h-5 text-cyan-500 shrink-0" />
+                <IconSparkles className="w-4 h-4 text-blue-500 shrink-0" />
                 <span>{roles[currentRoleIndex]}</span>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Pitch & Philosophy */}
+          {/* Value Pitch */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed"
           >
-            Je suis <strong>Jean-Claude Sassou</strong>. J'accompagne startups, entreprises et porteurs de projets dans la conception d'applications mobiles réactives (Flutter) et de plateformes web modernes haute performance.
+            Je suis <strong>Jean-Claude Sassou</strong>. J'aide les startups, entreprises et créateurs à transformer leurs ambitions en applications mobiles réactives (<strong>Flutter</strong>) et plateformes web modernes (<strong>Next.js 15, Laravel</strong>).
           </motion.p>
 
-          {/* Quick Action Docks */}
+          {/* Conversion CTA Dock */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center gap-3.5"
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <a href="#work">
-              <Button size="lg" variant="default" className="shadow-lg shadow-blue-500/20">
-                <span>Découvrir mes projets</span>
+            <a href="#estimator">
+              <Button size="lg" variant="default" className="shadow-lg shadow-blue-600/20 font-bold">
+                <span>Estimer mon projet (Devis gratuit)</span>
                 <IconArrowRight className="w-4 h-4" />
               </Button>
             </a>
 
-            <a href="/jeanclaudesas_cv_finale.pdf" download="CV_Jean_Claude_Sassou.pdf">
-              <Button size="lg" variant="secondary" className="flex items-center gap-2">
-                <IconDownload className="w-4 h-4" />
-                <span>Mon CV (PDF)</span>
+            <a href="#work">
+              <Button size="lg" variant="secondary">
+                <span>Voir les réalisations</span>
               </Button>
             </a>
 
-            <a href="#contact">
-              <Button size="lg" variant="ghost">
-                <span>Me contacter</span>
+            <a href="/jeanclaudesas_cv_finale.pdf" download="CV_Jean_Claude_Sassou.pdf">
+              <Button size="lg" variant="ghost" className="flex items-center gap-2">
+                <IconDownload className="w-4 h-4" />
+                <span>Mon CV</span>
               </Button>
             </a>
           </motion.div>
 
-          {/* Social Proof & Networks */}
+          {/* Trust Guarantees Quick Strip */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-10 pt-6 border-t border-slate-200/80 dark:border-slate-800/80 flex items-center gap-6"
+            className="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-semibold text-slate-500 dark:text-slate-400"
           >
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+            <div className="flex items-center gap-1.5">
+              <IconCheck className="w-4 h-4 text-emerald-500" />
               <span>Réponse garantie &lt; 24h</span>
             </div>
-
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/johnnygoldsoft"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-black dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-white transition-all shadow-xs"
-              >
-                <IconGithub className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jean-claude-sassou/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-blue-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-blue-400 transition-all shadow-xs"
-              >
-                <IconLinkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="mailto:johnnygoldsoft@gmail.com"
-                aria-label="Email"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 hover:text-red-500 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:text-red-400 transition-all shadow-xs"
-              >
-                <IconMail className="w-4 h-4" />
-              </a>
+            <div className="flex items-center gap-1.5">
+              <IconCheck className="w-4 h-4 text-emerald-500" />
+              <span>Code 100% transféré</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <IconCheck className="w-4 h-4 text-emerald-500" />
+              <span>Support 30j inclus</span>
             </div>
           </motion.div>
         </div>
 
-        {/* Right Column: Live Dev Terminal */}
+        {/* Right Column: Executive Credentials Profile Card */}
         <div className="lg:col-span-5 flex justify-center items-center relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="w-full flex justify-center"
+            transition={{ duration: 0.7, type: "spring" }}
+            className="w-full max-w-md"
           >
-            <LiveTerminal />
+            <SpotlightCard className="p-6 sm:p-7 rounded-3xl border border-slate-200/90 dark:border-slate-800/90 bg-white/95 dark:bg-[#111827]/95 shadow-xl space-y-6">
+              {/* Profile Top Row */}
+              <div className="flex items-center gap-4">
+                <div className="relative h-18 w-18 sm:h-20 sm:w-20 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-md shrink-0">
+                  <Image
+                    src={assets.user_image}
+                    alt="Jean-Claude Sassou"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                    Jean-Claude Sassou
+                  </h3>
+                  <p className="text-xs font-semibold text-blue-600 dark:text-blue-400">
+                    Ingénieur Logiciel &amp; Designer UI/UX
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+                    <IconMapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                    <span>Lomé, Togo (GMT / UTC+0)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Status & Work mode */}
+              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2 text-xs">
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500">Statut actuel :</span>
+                  <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    Ouvert aux missions
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1.5 border-t border-slate-200/60 dark:border-slate-700/40">
+                  <span className="text-slate-500">Mode de collaboration :</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">
+                    Remote International &amp; Hybride
+                  </span>
+                </div>
+              </div>
+
+              {/* Tech Mastery Chips */}
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+                  Technologies Clés
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Flutter 3.x", "Next.js 15", "React 19", "Laravel", "Tailwind v4", "Figma"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Instant Action Channels */}
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
+                {/* Direct WhatsApp Button */}
+                <a
+                  href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20d%C3%A9sire%20discuter%20d%27un%20projet%20avec%20vous."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
+                >
+                  <IconWhatsapp className="w-4 h-4" />
+                  <span>Échanger directement sur WhatsApp</span>
+                </a>
+
+                {/* 1-Click Copy Email & Socials */}
+                <div className="flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="flex-1 py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    {copiedEmail ? (
+                      <>
+                        <IconCheck className="w-3.5 h-3.5 text-emerald-500" />
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">Email Copié !</span>
+                      </>
+                    ) : (
+                      <>
+                        <IconCopy className="w-3.5 h-3.5" />
+                        <span>Copier l'Email</span>
+                      </>
+                    )}
+                  </button>
+
+                  <div className="flex items-center gap-1.5">
+                    <a
+                      href="https://github.com/johnnygoldsoft"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                      className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
+                    >
+                      <IconGithub className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/jean-claude-sassou/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                    >
+                      <IconLinkedin className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SpotlightCard>
           </motion.div>
         </div>
       </div>

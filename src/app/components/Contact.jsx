@@ -3,15 +3,17 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionTitle } from "@/components/common/SectionTitle";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import {
   IconMail,
   IconCopy,
   IconCheck,
   IconMapPin,
-  IconClock,
   IconArrowRight,
   IconGithub,
   IconLinkedin,
@@ -47,7 +49,6 @@ export default function Contact({ prefilledData }) {
   useEffect(() => {
     if (prefilledData) {
       if (prefilledData.type) {
-        // match type or set
         const matched = projectTypes.find((t) =>
           t.toLowerCase().includes(prefilledData.type.toLowerCase().slice(0, 5))
         );
@@ -132,9 +133,11 @@ export default function Contact({ prefilledData }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Column: Direct Fast Channels */}
           <div className="lg:col-span-5 space-y-5">
-            <SpotlightCard className="p-5 sm:p-6 rounded-2xl border border-stone-200/90 dark:border-amber-500/15 bg-white/95 dark:bg-[#171412]/95 shadow-sm space-y-4">
+            <Card className="p-5 sm:p-6 space-y-4">
               <div>
-                <Badge variant="default" className="text-[10px] font-bold px-2 py-0.5">Disponibilité Immédiate</Badge>
+                <Badge variant="default" className="text-[10px] font-bold px-2 py-0.5">
+                  Disponibilité Immédiate
+                </Badge>
                 <h3 className="mt-2 text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
                   Échangeons Directement
                 </h3>
@@ -158,10 +161,15 @@ export default function Contact({ prefilledData }) {
                   href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous%20sur%20mon%20projet."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                  className="block"
                 >
-                  <IconWhatsapp className="w-3.5 h-3.5" />
-                  <span>Discussion sur WhatsApp</span>
+                  <Button
+                    size="sm"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold gap-1.5"
+                  >
+                    <IconWhatsapp className="w-3.5 h-3.5" />
+                    <span>Discussion sur WhatsApp</span>
+                  </Button>
                 </a>
               </div>
 
@@ -181,10 +189,12 @@ export default function Contact({ prefilledData }) {
                   </div>
                 </div>
 
-                <button
+                <Button
                   type="button"
+                  size="sm"
+                  variant="outline"
                   onClick={handleCopyEmail}
-                  className="px-2.5 py-1 rounded-lg border border-amber-400/50 dark:border-amber-600/50 bg-white dark:bg-stone-850 text-[11px] font-bold text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-stone-800 flex items-center gap-1 transition-colors cursor-pointer shadow-xs shrink-0"
+                  className="h-7 px-2.5 text-[11px] font-bold text-amber-700 dark:text-amber-300 border-amber-400/50 dark:border-amber-600/50"
                 >
                   {copiedEmail ? (
                     <>
@@ -197,7 +207,7 @@ export default function Contact({ prefilledData }) {
                       <span>Copier</span>
                     </>
                   )}
-                </button>
+                </Button>
               </div>
 
               {/* Details & Location */}
@@ -212,33 +222,37 @@ export default function Contact({ prefilledData }) {
                 </div>
               </div>
 
+              <Separator />
+
               {/* Social Channels */}
-              <div className="pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <a
                   href="https://github.com/johnnygoldsoft"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-700 text-xs font-semibold hover:border-amber-500/40 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                 >
-                  <IconGithub className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
+                  <Button variant="outline" size="sm" className="gap-1.5 text-xs">
+                    <IconGithub className="w-3.5 h-3.5" />
+                    <span>GitHub</span>
+                  </Button>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/jean-claude-sassou/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-700 text-xs font-semibold hover:border-amber-500/40 text-stone-700 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                 >
-                  <IconLinkedin className="w-3.5 h-3.5" />
-                  <span>LinkedIn</span>
+                  <Button variant="outline" size="sm" className="gap-1.5 text-xs">
+                    <IconLinkedin className="w-3.5 h-3.5" />
+                    <span>LinkedIn</span>
+                  </Button>
                 </a>
               </div>
-            </SpotlightCard>
+            </Card>
           </div>
 
-          {/* Right Column: High-Conversion Form */}
+          {/* Right Column: High-Conversion Form using shadcn/ui Card, Input, Textarea, Button */}
           <div className="lg:col-span-7">
-            <SpotlightCard className="p-5 sm:p-6 rounded-2xl border border-stone-200/90 dark:border-amber-500/15 bg-white/95 dark:bg-[#171412]/95 shadow-sm">
+            <Card className="p-5 sm:p-6">
               <form onSubmit={onSubmit} className="space-y-4 sm:space-y-5">
                 {/* Project Type Selector Chips */}
                 <div>
@@ -263,7 +277,7 @@ export default function Contact({ prefilledData }) {
                   </div>
                 </div>
 
-                {/* Name & Email inputs */}
+                {/* Name & Email Inputs using shadcn/ui Input */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label
@@ -272,7 +286,7 @@ export default function Contact({ prefilledData }) {
                     >
                       Votre Nom <span className="text-amber-500">*</span>
                     </label>
-                    <input
+                    <Input
                       id="name"
                       name="name"
                       type="text"
@@ -280,7 +294,6 @@ export default function Contact({ prefilledData }) {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Ex: Alexandre Martin"
-                      className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-3.5 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-850/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-850"
                     />
                   </div>
 
@@ -291,7 +304,7 @@ export default function Contact({ prefilledData }) {
                     >
                       Votre Email <span className="text-amber-500">*</span>
                     </label>
-                    <input
+                    <Input
                       id="email"
                       name="email"
                       type="email"
@@ -299,12 +312,11 @@ export default function Contact({ prefilledData }) {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Ex: alexandre@entreprise.com"
-                      className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-3.5 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-850/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-850"
                     />
                   </div>
                 </div>
 
-                {/* Message Field */}
+                {/* Message Field using shadcn/ui Textarea */}
                 <div>
                   <label
                     htmlFor="message"
@@ -312,19 +324,18 @@ export default function Contact({ prefilledData }) {
                   >
                     Votre Message <span className="text-amber-500">*</span>
                   </label>
-                  <textarea
+                  <Textarea
                     id="message"
                     name="message"
-                    rows={3}
+                    rows={4}
                     required
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Décrivez brièvement vos attentes ou votre calendrier..."
-                    className="w-full rounded-xl border border-stone-200 bg-stone-50/50 px-3.5 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 transition-all focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/20 dark:border-stone-700 dark:bg-stone-850/50 dark:text-white dark:focus:border-amber-400 dark:focus:bg-stone-850"
                   />
                 </div>
 
-                {/* Submit Action & Result Banner */}
+                {/* Submit Action & Status Banner */}
                 <div className="pt-1 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <Button
                     type="submit"
@@ -332,7 +343,7 @@ export default function Contact({ prefilledData }) {
                     variant="default"
                     isLoading={isLoading}
                     disabled={isLoading}
-                    className="w-full sm:w-auto shadow-md shadow-amber-600/20 font-bold text-xs sm:text-sm"
+                    className="w-full sm:w-auto shadow-md shadow-amber-600/20 font-bold"
                   >
                     <span>Envoyer ma demande</span>
                     <IconArrowRight className="w-3.5 h-3.5" />
@@ -358,7 +369,7 @@ export default function Contact({ prefilledData }) {
                   )}
                 </div>
               </form>
-            </SpotlightCard>
+            </Card>
           </div>
         </div>
       </div>

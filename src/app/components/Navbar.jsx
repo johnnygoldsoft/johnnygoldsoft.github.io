@@ -10,7 +10,7 @@ import {
   IconArrowRight,
   IconWhatsapp,
 } from "@/components/ui/Icons";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -92,7 +92,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
                 Johnny Gold<span className="text-amber-500">.</span>
               </span>
               <span className="text-[10px] font-semibold text-stone-500 dark:text-stone-400 -mt-0.5">
-                Ingénieur Logiciel & Mobile
+                Ingénieur Logiciel &amp; Mobile
               </span>
             </div>
           </a>
@@ -125,20 +125,22 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             })}
           </ul>
 
-          {/* Actions: Theme Toggle & Primary CTA */}
+          {/* Actions: Theme Toggle & Primary CTA using shadcn/ui Button */}
           <div className="flex items-center gap-2">
             {/* Theme Toggle Button */}
-            <button
+            <Button
+              variant="outline"
+              size="icon"
               onClick={() => setIsDarkMode(!isDarkMode)}
               aria-label="Basculer le thème"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200/80 bg-white/80 text-stone-700 hover:bg-stone-100 dark:border-stone-700/80 dark:bg-stone-800/80 dark:text-stone-200 dark:hover:bg-stone-700 transition-all cursor-pointer shadow-xs"
+              className="rounded-full h-9 w-9 bg-white/80 dark:bg-stone-850/80 border-stone-200/80 dark:border-stone-700/80"
             >
               {isDarkMode ? (
                 <IconSun className="w-4 h-4 text-amber-400" />
               ) : (
                 <IconMoon className="w-4 h-4 text-stone-700" />
               )}
-            </button>
+            </Button>
 
             {/* CTA Devis Button */}
             <a href="#estimator" className="hidden sm:inline-flex">
@@ -149,9 +151,11 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
             </a>
 
             {/* Mobile Hamburger Toggle */}
-            <button
+            <Button
+              variant="outline"
+              size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden flex h-9 w-9 items-center justify-center rounded-full border border-stone-200/80 bg-white/80 text-stone-700 dark:border-stone-700/80 dark:bg-stone-800/80 dark:text-stone-200 cursor-pointer shadow-xs"
+              className="lg:hidden rounded-full h-9 w-9 bg-white/80 dark:bg-stone-850/80 border-stone-200/80 dark:border-stone-700/80"
               aria-label="Ouvrir le menu"
             >
               {isMobileMenuOpen ? (
@@ -159,7 +163,7 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
               ) : (
                 <IconMenu className="w-5 h-5" />
               )}
-            </button>
+            </Button>
           </div>
         </nav>
       </header>
@@ -195,12 +199,14 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
                       Johnny Gold Soft
                     </span>
                   </div>
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-stone-400 hover:text-stone-700 dark:hover:text-stone-200"
+                    className="h-8 w-8 text-stone-400 hover:text-stone-700 dark:hover:text-stone-200"
                   >
                     <IconX className="w-5 h-5" />
-                  </button>
+                  </Button>
                 </div>
 
                 {/* Nav Links */}
@@ -235,16 +241,18 @@ export default function Navbar({ isDarkMode, setIsDarkMode }) {
                   href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20souhaite%20%C3%A9changer%20avec%20vous."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-xs"
+                  className="block"
                 >
-                  <IconWhatsapp className="w-4 h-4" />
-                  <span>WhatsApp direct</span>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold gap-2">
+                    <IconWhatsapp className="w-4 h-4" />
+                    <span>WhatsApp direct</span>
+                  </Button>
                 </a>
 
                 <a
                   href="#estimator"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full"
+                  className="block"
                 >
                   <Button variant="default" className="w-full font-bold">
                     <span>Estimer mon projet</span>

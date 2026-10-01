@@ -2,8 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/Badge";
-import { IconBriefcase, IconGraduationCap, IconShield, IconSparkles } from "@/components/ui/Icons";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { IconBriefcase, IconGraduationCap, IconShield } from "@/components/ui/Icons";
 
 export function ExperienceTimeline() {
   const experiences = [
@@ -64,7 +65,7 @@ export function ExperienceTimeline() {
   ];
 
   return (
-    <div className="relative border-l-2 border-stone-200 dark:border-amber-500/25 ml-4 sm:ml-8 space-y-8 py-2">
+    <div className="relative border-l-2 border-stone-200 dark:border-amber-500/25 ml-4 sm:ml-8 space-y-6 py-2">
       {experiences.map((item, idx) => (
         <motion.div
           key={idx}
@@ -75,7 +76,7 @@ export function ExperienceTimeline() {
           className="relative pl-6 sm:pl-8 group"
         >
           {/* Timeline Node Bullet */}
-          <div className="absolute -left-[17px] top-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-amber-500/60 bg-white shadow-sm dark:bg-[#171412] dark:border-amber-500/60 group-hover:scale-110 transition-transform">
+          <div className="absolute -left-[17px] top-3 flex h-8 w-8 items-center justify-center rounded-full border-2 border-amber-500/60 bg-white shadow-sm dark:bg-[#171412] dark:border-amber-500/60 group-hover:scale-110 transition-transform">
             {item.type === "work" ? (
               <IconBriefcase className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
             ) : item.type === "cert" ? (
@@ -85,8 +86,8 @@ export function ExperienceTimeline() {
             )}
           </div>
 
-          {/* Timeline Card */}
-          <div className="rounded-2xl border border-stone-200/90 bg-white/95 p-4 sm:p-5 shadow-xs backdrop-blur-md transition-all duration-300 hover:shadow-md hover:border-amber-500/35 dark:border-amber-500/15 dark:bg-[#171412]/95 dark:hover:border-amber-500/35">
+          {/* Timeline Card using shadcn Card */}
+          <Card className="p-4 sm:p-5 hover:border-amber-500/35 hover:shadow-md transition-all">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 tracking-wider uppercase font-mono">
                 {item.period}
@@ -97,7 +98,7 @@ export function ExperienceTimeline() {
                     ? "default"
                     : item.type === "cert"
                     ? "success"
-                    : "warning"
+                    : "secondary"
                 }
                 className="text-[10px] font-bold px-2 py-0.5"
               >
@@ -122,15 +123,16 @@ export function ExperienceTimeline() {
 
             <div className="mt-3 flex flex-wrap gap-1">
               {item.skills.map((skill, sIdx) => (
-                <span
+                <Badge
                   key={sIdx}
-                  className="rounded-md bg-stone-100 dark:bg-stone-850 px-2 py-0.5 text-[10px] font-semibold text-stone-600 dark:text-stone-300 border border-stone-200/40 dark:border-stone-750"
+                  variant="outline"
+                  className="rounded-md bg-stone-100 dark:bg-stone-850 px-2 py-0.5 text-[10px] font-semibold text-stone-600 dark:text-stone-300 border-stone-200/40 dark:border-stone-750"
                 >
                   {skill}
-                </span>
+                </Badge>
               ))}
             </div>
-          </div>
+          </Card>
         </motion.div>
       ))}
     </div>

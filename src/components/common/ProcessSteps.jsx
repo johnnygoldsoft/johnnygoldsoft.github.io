@@ -2,13 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/Badge";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   IconSparkles,
   IconPalette,
   IconCode,
   IconShield,
-  IconCheck,
 } from "@/components/ui/Icons";
 
 export function ProcessSteps() {
@@ -63,8 +63,8 @@ export function ProcessSteps() {
           </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative">
+        {/* Steps Grid using shadcn/ui Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
@@ -74,32 +74,32 @@ export function ProcessSteps() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="p-5 rounded-2xl bg-white/95 dark:bg-[#171412]/95 border border-stone-200/90 dark:border-amber-500/15 flex flex-col justify-between shadow-xs hover:shadow-lg hover:border-amber-500/35 transition-all duration-300 group"
+                className="h-full"
               >
-                <div>
-                  {/* Top Bar: Number & Timing */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xl font-bold text-amber-500/60 dark:text-amber-500/50 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                      {step.number}
-                    </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-850 text-stone-600 dark:text-stone-300 border border-stone-200/60 dark:border-stone-750">
-                      {step.timing}
-                    </span>
-                  </div>
+                <Card className="h-full flex flex-col justify-between hover:shadow-lg hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 group">
+                  <CardHeader className="p-5 pb-2">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="font-mono text-xl font-bold text-amber-500/60 dark:text-amber-500/50 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                        {step.number}
+                      </span>
+                      <Badge variant="secondary" className="text-[10px] font-semibold">
+                        {step.timing}
+                      </Badge>
+                    </div>
 
-                  {/* Icon & Title */}
-                  <div className={`p-2.5 rounded-xl border inline-flex mb-3 ${step.color}`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
+                    <div className={`p-2.5 rounded-xl border inline-flex mb-2 self-start ${step.color}`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
 
-                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
-                    {step.title}
-                  </h3>
+                    <CardTitle className="text-base">{step.title}</CardTitle>
+                  </CardHeader>
 
-                  <p className="mt-1.5 text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                  <CardContent className="p-5 pt-0">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </motion.div>
             );
           })}

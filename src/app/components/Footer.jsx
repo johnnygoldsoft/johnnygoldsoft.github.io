@@ -1,12 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import {
   IconGithub,
   IconLinkedin,
   IconMail,
   IconArrowUp,
-  IconSparkles,
   IconWhatsapp,
 } from "@/components/ui/Icons";
 
@@ -87,28 +90,33 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Local Time & System Status */}
+          {/* Local Time & System Status using shadcn Card and Badge */}
           <div className="md:col-span-3 space-y-2.5">
             <span className="text-[11px] font-bold uppercase tracking-wider text-stone-900 dark:text-stone-100 mb-0.5 block">
               Fuseau Horaire
             </span>
-            <div className="p-3 rounded-xl bg-stone-100 dark:bg-[#171412] border border-stone-200/80 dark:border-amber-500/15 space-y-1.5">
+            <Card className="p-3 space-y-1.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-stone-500 text-[11px]">Heure Locale (Lomé)</span>
                 <span className="font-mono font-bold text-xs text-stone-800 dark:text-stone-200">
                   {localTime || "12:00:00"} GMT
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 pt-1 border-t border-stone-200/60 dark:border-stone-800">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <Separator />
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 pt-1">
+                <Badge variant="success" pulse={true} className="text-[9px] px-1.5 py-0">
+                  En direct
+                </Badge>
                 <span>Disponible pour nouvelles missions</span>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
 
+        <Separator />
+
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-stone-200/80 dark:border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-stone-500 dark:text-stone-400 text-center sm:text-left">
             &copy; {new Date().getFullYear()} Johnny Gold Soft. Tous droits réservés.
           </p>
@@ -121,45 +129,51 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="p-2 rounded-full text-stone-500 hover:text-emerald-600 dark:text-stone-400 dark:hover:text-emerald-400 transition-colors"
               >
-                <IconWhatsapp className="w-4 h-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-500 hover:text-emerald-600 dark:text-stone-400 dark:hover:text-emerald-400">
+                  <IconWhatsapp className="w-4 h-4" />
+                </Button>
               </a>
               <a
                 href="https://github.com/johnnygoldsoft"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="p-2 rounded-full text-stone-500 hover:text-amber-500 dark:text-stone-400 dark:hover:text-amber-400 transition-colors"
               >
-                <IconGithub className="w-4 h-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-500 hover:text-amber-500 dark:text-stone-400 dark:hover:text-amber-400">
+                  <IconGithub className="w-4 h-4" />
+                </Button>
               </a>
               <a
                 href="https://www.linkedin.com/in/jean-claude-sassou/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="p-2 rounded-full text-stone-500 hover:text-amber-600 dark:text-stone-400 dark:hover:text-amber-400 transition-colors"
               >
-                <IconLinkedin className="w-4 h-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-500 hover:text-amber-600 dark:text-stone-400 dark:hover:text-amber-400">
+                  <IconLinkedin className="w-4 h-4" />
+                </Button>
               </a>
               <a
                 href="mailto:johnnygoldsoft@gmail.com"
                 aria-label="Email"
-                className="p-2 rounded-full text-stone-500 hover:text-amber-600 dark:text-stone-400 dark:hover:text-amber-400 transition-colors"
               >
-                <IconMail className="w-4 h-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 text-stone-500 hover:text-amber-600 dark:text-stone-400 dark:hover:text-amber-400">
+                  <IconMail className="w-4 h-4" />
+                </Button>
               </a>
             </div>
 
             {/* Back to top button */}
-            <button
+            <Button
+              variant="outline"
+              size="icon"
               onClick={scrollToTop}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-200 bg-white text-stone-700 hover:border-amber-500 hover:text-amber-600 dark:border-amber-500/20 dark:bg-[#171412] dark:text-stone-200 dark:hover:border-amber-500/50 dark:hover:text-amber-400 transition-all cursor-pointer shadow-xs"
+              className="h-8 w-8 rounded-full border-stone-200 dark:border-amber-500/20 text-stone-700 hover:border-amber-500 hover:text-amber-600 dark:text-stone-200 dark:hover:border-amber-500/50 dark:hover:text-amber-400"
               aria-label="Retour en haut de page"
             >
               <IconArrowUp className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -4,23 +4,19 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "../../../assets/assets";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import {
   IconArrowRight,
   IconGithub,
   IconLinkedin,
-  IconMail,
   IconSparkles,
-  IconSmartphone,
-  IconCode,
   IconDownload,
   IconCheck,
   IconWhatsapp,
   IconCopy,
   IconMapPin,
-  IconClock,
 } from "@/components/ui/Icons";
 
 export default function Header() {
@@ -55,20 +51,16 @@ export default function Header() {
       <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         {/* Left Column: Strategic Headline & Conversion CTA */}
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          {/* Availability Status Badge */}
+          {/* Availability Status Badge using shadcn/ui Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="mb-4"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Disponible • Freelance &amp; CDI</span>
-            </div>
+            <Badge variant="success" pulse={true} className="px-3 py-1 text-[11px] font-semibold">
+              Disponible • Freelance &amp; CDI
+            </Badge>
           </motion.div>
 
           {/* Calibrated Sculptural Headline */}
@@ -101,7 +93,7 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          {/* Value Pitch (Short & Punchy) */}
+          {/* Value Pitch */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,7 +103,7 @@ export default function Header() {
             Ingénieur logiciel &amp; designer UI/UX. J'accompagne startups et entreprises dans la conception d'applications mobiles réactives (<strong>Flutter</strong>) et de plateformes web d'envergure (<strong>Next.js 15, Laravel</strong>).
           </motion.p>
 
-          {/* Conversion CTA Dock */}
+          {/* Conversion CTA Dock using shadcn/ui Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +132,7 @@ export default function Header() {
           </motion.div>
         </div>
 
-        {/* Right Column: Executive Hero Portrait Showcase */}
+        {/* Right Column: Executive Hero Portrait Showcase using shadcn/ui Card */}
         <div className="lg:col-span-5 flex justify-center items-center relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
@@ -151,7 +143,7 @@ export default function Header() {
             {/* Ambient Gold Halo */}
             <div className="absolute -inset-1.5 rounded-[2rem] bg-gradient-to-b from-amber-500/25 via-yellow-500/10 to-transparent blur-xl opacity-75 pointer-events-none" />
 
-            <div className="relative rounded-3xl overflow-hidden border border-stone-200/90 dark:border-amber-500/25 bg-white/95 dark:bg-[#171412]/95 shadow-xl">
+            <Card className="relative overflow-hidden border-stone-200/90 dark:border-amber-500/25 shadow-xl">
               {/* Photo Showcase Container */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-900">
                 <Image
@@ -167,10 +159,9 @@ export default function Header() {
 
                 {/* Floating Availability Pill */}
                 <div className="absolute top-3.5 left-3.5 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-stone-950/80 text-emerald-300 border border-emerald-500/30 backdrop-blur-md shadow-sm">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Disponible • Projets &amp; CDI</span>
-                  </span>
+                  <Badge variant="success" pulse={true} className="bg-stone-950/80 backdrop-blur-md text-[10px] font-bold">
+                    Disponible • Projets &amp; CDI
+                  </Badge>
                 </div>
 
                 {/* Overlay Profile Info on photo */}
@@ -188,15 +179,16 @@ export default function Header() {
                     </div>
                   </div>
 
-                  {/* Compact Tech Stack Pills */}
+                  {/* Compact Tech Stack Badges */}
                   <div className="flex flex-wrap gap-1">
                     {["Flutter 3", "Next.js 15", "React 19", "Laravel", "Figma"].map((tech) => (
-                      <span
+                      <Badge
                         key={tech}
-                        className="px-2 py-0.5 rounded-md bg-stone-900/80 text-[10px] font-semibold text-stone-200 border border-white/10 backdrop-blur-md"
+                        variant="secondary"
+                        className="bg-stone-900/80 text-[10px] font-semibold text-stone-200 border-white/10 backdrop-blur-md"
                       >
                         {tech}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
 
@@ -206,16 +198,23 @@ export default function Header() {
                       href="https://wa.me/22893892742?text=Bonjour%20Jean-Claude%2C%20je%20d%C3%A9sire%20discuter%20d%27un%20projet%20avec%20vous."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-1.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                      className="flex-1"
                     >
-                      <IconWhatsapp className="w-3.5 h-3.5" />
-                      <span>WhatsApp</span>
+                      <Button
+                        size="sm"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold gap-1.5 h-8"
+                      >
+                        <IconWhatsapp className="w-3.5 h-3.5" />
+                        <span>WhatsApp</span>
+                      </Button>
                     </a>
 
-                    <button
+                    <Button
                       type="button"
+                      size="sm"
+                      variant="outline"
                       onClick={handleCopyEmail}
-                      className="py-1.5 px-2.5 rounded-xl border border-white/20 bg-stone-900/80 hover:bg-stone-800 text-stone-200 text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer backdrop-blur-md shrink-0"
+                      className="h-8 px-2.5 border-white/20 bg-stone-900/80 hover:bg-stone-800 text-stone-200 text-xs font-semibold backdrop-blur-md shrink-0 gap-1"
                     >
                       {copiedEmail ? (
                         <>
@@ -228,7 +227,7 @@ export default function Header() {
                           <span className="text-[11px]">Email</span>
                         </>
                       )}
-                    </button>
+                    </Button>
 
                     <div className="flex items-center gap-1">
                       <a
@@ -236,24 +235,34 @@ export default function Header() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub"
-                        className="p-1.5 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400 transition-colors"
                       >
-                        <IconGithub className="w-3.5 h-3.5" />
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400"
+                        >
+                          <IconGithub className="w-3.5 h-3.5" />
+                        </Button>
                       </a>
                       <a
                         href="https://www.linkedin.com/in/jean-claude-sassou/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn"
-                        className="p-1.5 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400 transition-colors"
                       >
-                        <IconLinkedin className="w-3.5 h-3.5" />
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 rounded-xl border border-white/15 bg-stone-900/80 hover:bg-stone-800 text-stone-300 hover:text-amber-400"
+                        >
+                          <IconLinkedin className="w-3.5 h-3.5" />
+                        </Button>
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
           </motion.div>
         </div>
       </div>

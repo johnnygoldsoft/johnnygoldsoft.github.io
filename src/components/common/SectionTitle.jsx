@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/Badge";
+import { Badge } from "@/components/ui/badge";
 
 export function SectionTitle({
   badge = "",
